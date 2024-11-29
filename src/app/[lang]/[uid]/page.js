@@ -10,7 +10,7 @@ export async function generateMetadata({ params: { uid, lang } }) {
   };
 }
 
-export default async function Page({ params: { uid, lang } }) {
+export default async function Page({ params: { uid, lang }, children }) {
   // Validate language parameter
   if (!['en-ca', 'fr-ca'].includes(lang)) {
     notFound();
@@ -58,7 +58,10 @@ export default async function Page({ params: { uid, lang } }) {
         settings={settings}
       /> */}
       <main id="main">
-        <Container>
+        <Container id="main-content" tag="main" size="xl" centered>
+          <div>
+            {children}
+          </div>
           <DateModified date={new Date()} />
         </Container>
       </main>
