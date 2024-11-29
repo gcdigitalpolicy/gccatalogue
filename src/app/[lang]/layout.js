@@ -39,7 +39,7 @@ export default async function Layout({ children, params }) {
       <body className={clsx(inter.className)}>
         <Header locale={params.lang} settings={settings} navigation={navigation} />
         {children}
-        <Footer settings={settings} navigation={navigation} />
+        <Footer locale={params.lang} settings={settings} navigation={navigation} />
       </body>
     </html>
   );
