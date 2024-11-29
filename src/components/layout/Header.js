@@ -16,30 +16,34 @@ import { Container } from "@/components/layout/Container";
 export function Header({ title, locales, navigation, settings }) {
   const pathname = usePathname();
 
+  const navLinks = [
+    { href: "/patterns", text: "Policy Patterns" },
+    { href: "/tools", text: "Policy Tools" }
+  ];
+
   return (
     <header>
-      <GcdsHeader
-        applicationTitle={
-          <Link href="/" className="text-decoration-none">
-            {settings?.data?.site_title || "GC Catalogue"}
-          </Link>
-        }
-        applicationTitleHref="/"
-        language="en"
-        signInHref="#"
-        signOutHref="#"
-        menuPosition="right"
-        skipToMainText="Skip to main content"
-        skipToMainHref="#main"
-        topnavLinks={navigation?.data?.links?.map((item) => ({
-          href: item.link || "#",
-          text: item.label || "",
-        })) || []}
-      />
-      <PhaseBanner settings={settings} />
-      <Container>
-        <Breadcrumbs title={title} />
-      </Container>
+      {locales.map(
+        (locale, index) =>
+          index === 1 && (
+            <GcdsHeader key={index} langHref={locale.url} skipToHref="#">
+              <PhaseBanner settings={settings} />
+              <GcdsSignature hasLink="false" type="signature" variant="color" />
+              <GcdsTopNav slot="menu" label="Site" alignment="right">
+                <GcdsNavLink href="/" slot="home">
+                  {settings?.data?.site_title || "GC Catalogue"}
+                </GcdsNavLink>
+                {navLinks.map((link) => (
+                  <GcdsNavLink key={link.text} href={link.href}>
+                    {link.text}
+                  </GcdsNavLink>
+                ))}
+              </GcdsTopNav>
+              <Breadcrumbs title={title} />
+              <Search />
+            </GcdsHeader>
+          )
+      )}
     </header>
   );
 }
