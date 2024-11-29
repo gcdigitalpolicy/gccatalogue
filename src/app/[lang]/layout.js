@@ -26,7 +26,10 @@ export default async function Layout({ children, params }) {
 
   return (
     <html lang={lang}>
-      <body className={clsx(inter.className)}>{children}</body>
+      <body className={clsx(inter.className)}>
+        <Header locale={params.lang} />
+        {children}
+      </body>
     </html>
   );
 }

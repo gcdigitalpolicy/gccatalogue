@@ -50,12 +50,21 @@ export function middleware(request) {
     const acceptLanguage = request.headers.get('accept-language');
     const preferredLocale = getPreferredLocale(acceptLanguage);
     
-    // Create new URL with the preferred locale
+    // Create new URL with the locale prefix
     const url = new URL(`/${preferredLocale}${pathname}`, request.url);
     return NextResponse.redirect(url);
   }
 
-  return NextResponse.next();
+  // Extract the current locale from the pathname
+  const currentLocale = locales.find(locale => 
+    pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  );
+
+  // Clone the response and add the locale information
+  const response = NextResponse.next();
+  response.headers.set('x-current-locale', currentLocale || 'en-ca');
+  
+  return response;
 }
 
 export const config = {

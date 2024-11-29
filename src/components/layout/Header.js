@@ -13,37 +13,33 @@ import { Search } from "@/components/layout/Search";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Container } from "@/components/layout/Container";
 
-export function Header({ title, locales, navigation, settings }) {
+export function Header({ title, locale, navigation, settings }) {
   const pathname = usePathname();
+  const alternateLocale = locale === 'en-ca' ? 'fr-ca' : 'en-ca';
 
   const navLinks = [
-    { href: "/patterns", text: "Policy Patterns" },
-    { href: "/tools", text: "Policy Tools" }
+    { href: `/${locale}/patterns`, text: locale === 'fr-ca' ? "Modèles de politique" : "Policy Patterns" },
+    { href: `/${locale}/tools`, text: locale === 'fr-ca' ? "Outils de politique" : "Policy Tools" }
   ];
 
   return (
     <header>
-      {locales.map(
-        (locale, index) =>
-          index === 1 && (
-            <GcdsHeader key={index} langHref={locale.url} skipToHref="#">
-              <PhaseBanner settings={settings} />
-              <GcdsSignature hasLink="false" type="signature" variant="color" />
-              <GcdsTopNav slot="menu" label="Site" alignment="right">
-                <GcdsNavLink href="/" slot="home">
-                  {settings?.data?.site_title || "GC Catalogue"}
-                </GcdsNavLink>
-                {navLinks.map((link) => (
-                  <GcdsNavLink key={link.text} href={link.href}>
-                    {link.text}
-                  </GcdsNavLink>
-                ))}
-              </GcdsTopNav>
-              <Breadcrumbs title={title} />
-              <Search />
-            </GcdsHeader>
-          )
-      )}
+      <GcdsHeader langHref={`/${alternateLocale}${pathname.substring(6)}`} skipToHref="#">
+        <PhaseBanner settings={settings} />
+        <GcdsSignature hasLink="false" type="signature" variant="color" />
+        <GcdsTopNav slot="menu" label="Site" alignment="right">
+          <GcdsNavLink href={`/${locale}`} slot="home">
+            {settings?.data?.site_title || "GC Catalogue"}
+          </GcdsNavLink>
+          {navLinks.map((link) => (
+            <GcdsNavLink key={link.text} href={link.href}>
+              {link.text}
+            </GcdsNavLink>
+          ))}
+        </GcdsTopNav>
+        <Breadcrumbs title={title} />
+        <Search />
+      </GcdsHeader>
     </header>
   );
 }
