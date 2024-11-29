@@ -1,6 +1,8 @@
 # GC Catalogue
 
-A bilingual (English/French) website showcasing the Government of Canada's digital and data policy tools, patterns, and best practices.
+The GC Catalogue is a curated set of reusable digital patterns and data policy tools to help unblock Government of Canada teams trying to deliver secure, easy-to-use and trustworthy services.
+
+Policy tools here range from sample legal wording for use in vendor contracts to updated job descriptions available for reuse.
 
 ## Overview
 
