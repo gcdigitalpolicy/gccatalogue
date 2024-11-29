@@ -4,18 +4,17 @@ import React from "react";
 import { GcdsFooter } from "@cdssnc/gcds-components-react-ssr";
 import { GcdsWrapper } from "@cdssnc/gcds-components-react-ssr/client";
 
-export const Footer = () => {
-
-  const contextualLinks = JSON.stringify({
+export const Footer = ({ locale }) => {
+  const contextualLinks = {
     "Contact Us": "#",
     "Report an issue": "#"
-  });
+  };
 
   return (
     <GcdsWrapper>
       <GcdsFooter
         display="full"
-        contextualHeading="GC Digital Policy"
+        contextualHeading={locale === 'fr-ca' ? 'Politique numérique du GC' : 'GC Digital Policy'}
         contextualLinks={contextualLinks}
       />
     </GcdsWrapper>

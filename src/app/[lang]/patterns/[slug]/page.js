@@ -16,9 +16,8 @@ export async function generateStaticParams() {
   )
 }
 
-export default async function PatternPage({
-  params: { slug, lang },
-}) {
+export default async function PatternPage(props) {
+  const { slug, lang } = await props.params
   const pattern = await getPattern(slug, lang)
 
   // Redirect to external URL if one exists
