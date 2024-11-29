@@ -1,7 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/layout/Container";
 import { DateModified } from "@/components/DateModified";
-import { Footer } from "@/components/layout/Footer";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params: { uid, lang } }) {
@@ -63,7 +62,6 @@ export default async function Page({ params: { uid, lang } }) {
           <DateModified date={new Date()} />
         </Container>
       </main>
-      <Footer settings={settings} navigation={navigation} />
     </>
   );
 }
