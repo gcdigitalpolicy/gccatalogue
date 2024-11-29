@@ -22,13 +22,16 @@ export async function getPattern(slug, locale) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
+  // Remove any remaining frontmatter markers
+  const cleanContent = content.replace(/^---[\s\S]*?---\n/, '').trim()
+
   return {
     title: data.title,
     slug: data.slug,
     description: data.description,
     category: data.category,
     externalUrl: data.externalUrl,
-    content,
+    content: cleanContent,
   }
 }
 

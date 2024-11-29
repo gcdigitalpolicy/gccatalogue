@@ -57,14 +57,14 @@ export default async function Page({ params: { uid, lang }, children }) {
         navigation={navigation}
         settings={settings}
       /> */}
-      <main id="main">
+      {/* <main id="main"> */}
         <Container id="main-content" tag="main" size="xl" centered>
           <div>
             {children}
           </div>
           <DateModified date={new Date()} />
         </Container>
-      </main>
+      {/* </main> */}
     </>
   );
 }
