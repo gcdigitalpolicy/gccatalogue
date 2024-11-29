@@ -52,12 +52,12 @@ export default async function Page({ params: { uid, lang } }) {
 
   return (
     <>
-      <Header
+      {/* <Header
         title={page.data.title}
         locales={locales}
         navigation={navigation}
         settings={settings}
-      />
+      /> */}
       <main id="main">
         <Container>
           <DateModified date={new Date()} />
