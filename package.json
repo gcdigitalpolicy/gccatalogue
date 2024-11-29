@@ -1,0 +1,27 @@
+{
+  "name": "gccatalogue-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "next:dev": "next",
+    "build": "next build && cp -r .next/static .next/standalone/.next/",
+    "buildpublic": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@cdssnc/gcds-components-react-ssr": "^0.27.0-canary.0",
+    "@cdssnc/gcds-utility": "^1.4.0",
+    "clsx": "^2.1.1",
+    "next": "^15",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "eslint": "^9.15.0",
+    "eslint-config-next": "15.0.3",
+    "prettier": "^3.4.1"
+  }
+}
