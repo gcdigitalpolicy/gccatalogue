@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>PSD and DSD – Filter Requirements – Canada.ca</title>
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_32/cdts/compiled/soyutils.js"></script>
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_32/cdts/compiled/wet-en.js"></script>
+<noscript><link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_32/wet-boew/css/noscript.min.css"/></noscript>
+<style>
+.filter-bar{background:#f5f5f5;padding:20px;border:1px solid #ddd;border-radius:4px;margin-bottom:24px}
+.filter-bar .form-group{margin-bottom:12px}
+.req-card{border:1px solid #ddd;border-radius:4px;padding:16px;margin-bottom:16px;background:#fff;transition:box-shadow .2s}
+.req-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.req-card.src-psd{border-left:5px solid #1d4e89}
+.req-card.src-dsd{border-left:5px solid #af3c43}
+.req-card .card-ref{font-size:.85em;color:#666;margin-bottom:4px}
+.req-card .card-req{font-size:1em;margin:8px 0 12px}
+.tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.8em;margin:2px;color:#fff}
+.tag-role{background:#1d4e89}
+.tag-topic{background:#26374a}
+.tag-principle{background:#af3c43}
+.tag-kr{background:#2b6626}
+#result-count{font-weight:bold;margin-bottom:16px;font-size:1.05em}
+.hidden-card{display:none}
+select.form-control{max-width:100%}
+.filter-actions{margin-top:8px}
+</style>
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<div id="def-top"></div>
+<script>
+var defTop=document.getElementById("def-top");
+defTop.outerHTML=wet.builder.top({
+  lngLinks:[{lang:"fr",href:"exigences-filtrer-fr.html",text:"Français"}],
+  breadcrumbs:[
+    {title:"Canada.ca",href:"https://www.canada.ca/en.html"},
+    {title:"Digital government",href:"https://www.canada.ca/en/government/system/digital-government.html"},
+    {title:"PSD and DSD Requirements",href:"requirements-all.html"},
+    {title:"Filter requirements",href:"#"}
+  ],
+  search:true,siteMenu:true,showPreContent:true
+});
+</script>
+
+<main property="mainContentOfPage" class="container" typeof="WebPageElement">
+<h1 property="name" id="wb-cont">Policy and Directive on Service and Digital – Filter Requirements</h1>
+<p class="lead">Filter requirements from the <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603">Policy on Service and Digital (PSD)</a> and <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">Directive on Service and Digital (DSD)</a> by role, topic, principle or key result.</p>
+<p><a href="requirements-all.html">View the complete list of all requirements</a></p>
+
+<div class="filter-bar">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <div class="form-group">
+        <label for="f-source"><strong>Source</strong></label>
+        <select class="form-control" id="f-source"><option value="">All sources</option></select>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="form-group">
+        <label for="f-role"><strong>Role</strong></label>
+        <select class="form-control" id="f-role"><option value="">All roles</option></select>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="form-group">
+        <label for="f-topic"><strong>Topic</strong></label>
+        <select class="form-control" id="f-topic"><option value="">All topics</option></select>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="form-group">
+        <label for="f-principle"><strong>Principle</strong></label>
+        <select class="form-control" id="f-principle"><option value="">All principles</option></select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <div class="form-group">
+        <label for="f-kr"><strong>Key Result</strong></label>
+        <select class="form-control" id="f-kr"><option value="">All key results</option></select>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="form-group">
+        <label for="f-search"><strong>Keyword search</strong></label>
+        <input type="text" class="form-control" id="f-search" placeholder="Search requirements…"/>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="form-group">
+        <label>&nbsp;</label>
+        <div class="filter-actions">
+          <button class="btn btn-default" id="btn-clear" type="button">Clear all filters</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p id="result-count"></p>
+<div id="req-cards"></div>
+
+<div class="pagedetails"><dl id="wb-dtmd"><dt>Date modified:&#32;</dt><dd><time property="dateModified">2025-03-04</time></dd></dl></div>
+</main>
+
+<div id="def-footer"></div>
+<script>
+var defFooter=document.getElementById("def-footer");
+defFooter.outerHTML=wet.builder.footer({showFooter:true,showFeatures:false});
+</script>
+<script>wet.builder.init();</script>
+
+<script>
+var requirements=[
+  {id:"PSD-4.1.1",req:"Ensuring that services are designed and delivered in a manner that focuses on client needs and the overall client experience.",src:"PSD",sec:"4.1.1",role:"Deputy Head",topic:"Service Design and Delivery",principle:"Design with users",kr:"Improved client-centred services"},
+  {id:"PSD-4.1.2",req:"Ensuring that services are available through multiple service channels based on client needs and operational efficiency.",src:"PSD",sec:"4.1.2",role:"Deputy Head",topic:"Service Design and Delivery",principle:"Design with users",kr:"Improved client-centred services"},
+  {id:"PSD-4.1.3",req:"Establishing and maintaining a departmental service inventory and making it available through the GC open government portal.",src:"PSD",sec:"4.1.3",role:"Deputy Head",topic:"Service Design and Delivery",principle:"Work in the open by default",kr:"Open and transparent government"},
+  {id:"PSD-4.1.4",req:"Ensuring that digital services are prioritized and that services are designed to be digital end-to-end.",src:"PSD",sec:"4.1.4",role:"Deputy Head",topic:"Service Design and Delivery",principle:"Design for accessibility",kr:"Digital-first services"},
+  {id:"PSD-4.1.5",req:"Ensuring the responsible and ethical use of automated decision systems in accordance with TBS direction and guidance.",src:"PSD",sec:"4.1.5",role:"Deputy Head",topic:"Digital and Data",principle:"Address security and privacy risks",kr:"Responsible use of AI"},
+  {id:"PSD-4.1.6",req:"Ensuring that information and data are managed as a strategic asset throughout their life cycle.",src:"PSD",sec:"4.1.6",role:"Deputy Head",topic:"Information and Data",principle:"Be good stewards of government assets",kr:"Improved data governance"},
+  {id:"PSD-4.1.7",req:"Promoting and enabling the sharing and reuse of information and data across the Government of Canada.",src:"PSD",sec:"4.1.7",role:"Deputy Head",topic:"Information and Data",principle:"Enable interoperability",kr:"Connected government data"},
+  {id:"PSD-4.1.8",req:"Ensuring that information technology investments are managed strategically and deliver business value.",src:"PSD",sec:"4.1.8",role:"Deputy Head",topic:"IT Management",principle:"Be good stewards of government assets",kr:"Value-for-money IT"},
+  {id:"PSD-4.1.9",req:"Ensuring that departmental cyber security risks are managed in alignment with government-wide security strategies.",src:"PSD",sec:"4.1.9",role:"Deputy Head",topic:"Cyber Security",principle:"Address security and privacy risks",kr:"Secure and trusted government"},
+  {id:"PSD-4.1.10",req:"Providing authorized users with open access to the internet and Government of Canada web tools to enhance productivity.",src:"PSD",sec:"4.1.10",role:"Deputy Head",topic:"IT Management",principle:"Work in the open by default",kr:"Digital-first services"},
+  {id:"PSD-4.1.11",req:"Establishing acceptable use policies for Government of Canada electronic networks and devices.",src:"PSD",sec:"4.1.11",role:"Deputy Head",topic:"Cyber Security",principle:"Address security and privacy risks",kr:"Secure and trusted government"},
+  {id:"PSD-4.2.1",req:"Providing strategic direction for departmental service, information, data, IT and cyber security management.",src:"PSD",sec:"4.2.1",role:"CIO / CDIO",topic:"IT Management",principle:"Iterate and improve frequently",kr:"Effective enterprise architecture"},
+  {id:"PSD-4.2.2",req:"Leading enterprise architecture and ensuring departmental alignment with the GC enterprise architecture framework.",src:"PSD",sec:"4.2.2",role:"CIO / CDIO",topic:"IT Management",principle:"Enable interoperability",kr:"Effective enterprise architecture"},
+  {id:"PSD-4.2.3",req:"Enabling the sharing, reuse and interoperability of systems, information and data across the GC.",src:"PSD",sec:"4.2.3",role:"CIO / CDIO",topic:"Information and Data",principle:"Enable interoperability",kr:"Connected government data"},
+  {id:"PSD-4.2.4",req:"Establishing and communicating departmental IT governance and enterprise architecture review processes.",src:"PSD",sec:"4.2.4",role:"CIO / CDIO",topic:"IT Management",principle:"Iterate and improve frequently",kr:"Value-for-money IT"},
+  {id:"PSD-4.2.5",req:"Ensuring that digital talent within the department is developed and managed in alignment with the GC digital talent strategy.",src:"PSD",sec:"4.2.5",role:"CIO / CDIO",topic:"Digital and Data",principle:"Empower staff to deliver better services",kr:"Skilled digital workforce"},
+  {id:"DSD-4.1.1",req:"Establishing, implementing and maintaining a departmental integrated service plan.",src:"DSD",sec:"4.1.1",role:"Designated Official for Service",topic:"Service Design and Delivery",principle:"Design with users",kr:"Improved client-centred services"},
+  {id:"DSD-4.1.2",req:"Ensuring that service standards are developed, reviewed regularly and published on the department's web presence.",src:"DSD",sec:"4.1.2",role:"Designated Official for Service",topic:"Service Design and Delivery",principle:"Design with users",kr:"Improved client-centred services"},
+  {id:"DSD-4.1.3",req:"Ensuring that real-time service performance information is made available on the department's web presence.",src:"DSD",sec:"4.1.3",role:"Designated Official for Service",topic:"Service Design and Delivery",principle:"Work in the open by default",kr:"Open and transparent government"},
+  {id:"DSD-4.1.4",req:"Ensuring that client feedback is collected through multiple channels and used to inform continuous improvement of services.",src:"DSD",sec:"4.1.4",role:"Designated Official for Service",topic:"Service Design and Delivery",principle:"Design with users",kr:"Improved client-centred services"},
+  {id:"DSD-4.1.5",req:"Ensuring that newly designed or redesigned online services provide real-time application status to clients.",src:"DSD",sec:"4.1.5",role:"Designated Official for Service",topic:"Service Design and Delivery",principle:"Design for accessibility",kr:"Digital-first services"},
+  {id:"DSD-4.1.6",req:"Working with TBS to make the departmental service inventory available through the GC open government portal.",src:"DSD",sec:"4.1.6",role:"Designated Official for Service",topic:"Service Design and Delivery",principle:"Work in the open by default",kr:"Open and transparent government"},
+  {id:"DSD-4.2.1",req:"Ensuring that departmental IT investments align with the GC enterprise architecture framework.",src:"DSD",sec:"4.2.1",role:"CIO / CDIO",topic:"IT Management",principle:"Enable interoperability",kr:"Effective enterprise architecture"},
+  {id:"DSD-4.2.2",req:"Establishing and maintaining an enterprise architecture review function within the department.",src:"DSD",sec:"4.2.2",role:"CIO / CDIO",topic:"IT Management",principle:"Iterate and improve frequently",kr:"Effective enterprise architecture"},
+  {id:"DSD-4.2.3",req:"Ensuring departmental systems expose interfaces that allow information and data to be shared across the GC.",src:"DSD",sec:"4.2.3",role:"CIO / CDIO",topic:"IT Management",principle:"Enable interoperability",kr:"Connected government data"},
+  {id:"DSD-4.2.4",req:"Ensuring that cloud services are adopted in a manner aligned with the GC cloud adoption strategy.",src:"DSD",sec:"4.2.4",role:"CIO / CDIO",topic:"IT Management",principle:"Be good stewards of government assets",kr:"Value-for-money IT"},
+  {id:"DSD-4.3.1",req:"Establishing and maintaining a departmental cyber security event management plan.",src:"DSD",sec:"4.3.1",role:"CISO",topic:"Cyber Security",principle:"Address security and privacy risks",kr:"Secure and trusted government"},
+  {id:"DSD-4.3.2",req:"Implementing security controls for departmental systems in accordance with GC security standards.",src:"DSD",sec:"4.3.2",role:"CISO",topic:"Cyber Security",principle:"Address security and privacy risks",kr:"Secure and trusted government"},
+  {id:"DSD-4.3.3",req:"Conducting cyber security awareness activities for departmental employees and contractors.",src:"DSD",sec:"4.3.3",role:"CISO",topic:"Cyber Security",principle:"Empower staff to deliver better services",kr:"Skilled digital workforce"},
+  {id:"DSD-4.3.4",req:"Ensuring that departmental systems and networks are monitored for cyber security threats and vulnerabilities.",src:"DSD",sec:"4.3.4",role:"CISO",topic:"Cyber Security",principle:"Address security and privacy risks",kr:"Secure and trusted government"},
+  {id:"DSD-4.4.1",req:"Documenting life-cycle management practices for departmental information and data.",src:"DSD",sec:"4.4.1",role:"Departmental IM Senior Official",topic:"Information and Data",principle:"Be good stewards of government assets",kr:"Improved data governance"},
+  {id:"DSD-4.4.2",req:"Establishing and maintaining taxonomies or classification structures to manage and retrieve information and data.",src:"DSD",sec:"4.4.2",role:"Departmental IM Senior Official",topic:"Information and Data",principle:"Be good stewards of government assets",kr:"Improved data governance"},
+  {id:"DSD-4.4.3",req:"Ensuring that departmental information is created in an accessible format where appropriate.",src:"DSD",sec:"4.4.3",role:"Departmental IM Senior Official",topic:"Information and Data",principle:"Design for accessibility",kr:"Inclusive services and systems"},
+  {id:"DSD-4.4.4",req:"Establishing, implementing and maintaining retention periods for all information and data.",src:"DSD",sec:"4.4.4",role:"Departmental IM Senior Official",topic:"Information and Data",principle:"Be good stewards of government assets",kr:"Improved data governance"},
+  {id:"DSD-4.4.5",req:"Developing a documented disposition process and performing regular disposition activities for all information and data.",src:"DSD",sec:"4.4.5",role:"Departmental IM Senior Official",topic:"Information and Data",principle:"Be good stewards of government assets",kr:"Improved data governance"},
+  {id:"DSD-4.5.1",req:"Establishing and implementing a departmental data strategy aligned with the GC data strategy.",src:"DSD",sec:"4.5.1",role:"Chief Data Officer",topic:"Information and Data",principle:"Be good stewards of government assets",kr:"Improved data governance"},
+  {id:"DSD-4.5.2",req:"Promoting the use of data to inform departmental decision-making and policy development.",src:"DSD",sec:"4.5.2",role:"Chief Data Officer",topic:"Digital and Data",principle:"Be good stewards of government assets",kr:"Improved data governance"},
+  {id:"DSD-4.5.3",req:"Ensuring departmental data is discoverable, accessible and reusable by other GC organizations.",src:"DSD",sec:"4.5.3",role:"Chief Data Officer",topic:"Information and Data",principle:"Enable interoperability",kr:"Connected government data"},
+  {id:"DSD-4.6.1",req:"Ensuring that departmental project management processes align with GC project management standards.",src:"DSD",sec:"4.6.1",role:"Managers",topic:"IT Management",principle:"Iterate and improve frequently",kr:"Value-for-money IT"},
+  {id:"DSD-4.6.2",req:"Ensuring that staff are provided with the tools and training needed to effectively deliver digital services.",src:"DSD",sec:"4.6.2",role:"Managers",topic:"Digital and Data",principle:"Empower staff to deliver better services",kr:"Skilled digital workforce"}
+];
+
+// Populate dropdowns
+function populateSelect(id,field){
+  var sel=document.getElementById(id);
+  var vals=[...new Set(requirements.map(r=>r[field]))].sort();
+  vals.forEach(function(v){var o=document.createElement("option");o.value=v;o.textContent=v;sel.appendChild(o);});
+}
+populateSelect("f-source","src");
+populateSelect("f-role","role");
+populateSelect("f-topic","topic");
+populateSelect("f-principle","principle");
+populateSelect("f-kr","kr");
+
+// Build cards
+var container=document.getElementById("req-cards");
+requirements.forEach(function(r){
+  var d=document.createElement("div");
+  d.className="req-card src-"+r.src.toLowerCase();
+  d.dataset.source=r.src;
+  d.dataset.role=r.role;
+  d.dataset.topic=r.topic;
+  d.dataset.principle=r.principle;
+  d.dataset.kr=r.kr;
+  d.dataset.text=r.req.toLowerCase();
+  d.innerHTML=
+    '<p class="card-ref"><code>'+r.id+'</code> — <span class="label" style="background:'+(r.src==="PSD"?"#1d4e89":"#af3c43")+';color:#fff">'+r.src+'</span> Section '+r.sec+'</p>'+
+    '<p class="card-req">'+r.req+'</p>'+
+    '<div>'+
+    '<span class="tag tag-role">'+r.role+'</span>'+
+    '<span class="tag tag-topic">'+r.topic+'</span>'+
+    '<span class="tag tag-principle">'+r.principle+'</span>'+
+    '<span class="tag tag-kr">'+r.kr+'</span>'+
+    '</div>';
+  container.appendChild(d);
+});
+
+function applyFilters(){
+  var fSrc=document.getElementById("f-source").value;
+  var fRole=document.getElementById("f-role").value;
+  var fTopic=document.getElementById("f-topic").value;
+  var fPrinciple=document.getElementById("f-principle").value;
+  var fKr=document.getElementById("f-kr").value;
+  var fSearch=document.getElementById("f-search").value.toLowerCase().trim();
+  var cards=document.querySelectorAll(".req-card");
+  var visible=0;
+  cards.forEach(function(c){
+    var show=(!fSrc||c.dataset.source===fSrc)&&
+             (!fRole||c.dataset.role===fRole)&&
+             (!fTopic||c.dataset.topic===fTopic)&&
+             (!fPrinciple||c.dataset.principle===fPrinciple)&&
+             (!fKr||c.dataset.kr===fKr)&&
+             (!fSearch||c.dataset.text.includes(fSearch));
+    c.style.display=show?"":"none";
+    if(show)visible++;
+  });
+  var total=requirements.length;
+  document.getElementById("result-count").textContent=
+    "Showing "+visible+" of "+total+" requirements";
+}
+
+["f-source","f-role","f-topic","f-principle","f-kr"].forEach(function(id){
+  document.getElementById(id).addEventListener("change",applyFilters);
+});
+document.getElementById("f-search").addEventListener("input",applyFilters);
+document.getElementById("btn-clear").addEventListener("click",function(){
+  ["f-source","f-role","f-topic","f-principle","f-kr"].forEach(function(id){document.getElementById(id).value="";});
+  document.getElementById("f-search").value="";
+  applyFilters();
+});
+
+applyFilters();
+</script>
+</body>
+</html>
