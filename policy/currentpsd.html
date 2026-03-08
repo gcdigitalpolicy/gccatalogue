@@ -289,6 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function populateSelect(id, field) {
     var sel = document.getElementById(id);
+    if (!sel) return;
     var vals = Array.from(new Set(requirements.map(function(r) { return r[field]; }).filter(Boolean))).sort();
     vals.forEach(function(v) {
       var o = document.createElement('option');
@@ -296,27 +297,23 @@ document.addEventListener('DOMContentLoaded', function() {
       o.textContent = (field === 'kr' && krLabels[v]) ? krLabels[v] : v;
       sel.appendChild(o);
     });
-    if (vals.length === 0) {
-      sel.disabled = true;
-      sel.style.opacity = '0.5';
-      sel.style.cursor = 'not-allowed';
-    }
   }
+
   populateSelect('f-role', 'role');
   populateSelect('f-topic', 'topic');
   populateSelect('f-kr', 'kr');
 
   function applyFilters() {
-    var fRole = document.getElementById('f-role').value;
-    var fTopic = document.getElementById('f-topic').value;
-      var fKr = document.getElementById('f-kr').value;
-    var visible = 0;
+    var fRole    = document.getElementById('f-role').value;
+    var fTopic   = document.getElementById('f-topic').value;
+    var fKr      = document.getElementById('f-kr').value;
+    var visible  = 0;
 
     allCards.forEach(function(item) {
       var c = item.card;
-      var show = (!fRole || c.dataset.role === fRole) &&
+      var show = (!fRole  || c.dataset.role  === fRole)  &&
                  (!fTopic || c.dataset.topic === fTopic) &&
-                   (!fKr || c.dataset.kr === fKr);
+                 (!fKr    || c.dataset.kr    === fKr);
       c.classList.toggle('hidden', !show);
       if (show) visible++;
     });
@@ -326,19 +323,25 @@ document.addEventListener('DOMContentLoaded', function() {
       sec.classList.toggle('hidden', !any);
     });
 
-    document.getElementById('result-count').textContent = visible + ' of ' + requirements.length + ' requirements';
-    document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+    document.getElementById('result-count').textContent =
+      visible + ' of ' + requirements.length + ' requirements';
+    document.getElementById('no-results').style.display =
+      visible === 0 ? 'block' : 'none';
   }
 
   function clearFilters() {
     ['f-role', 'f-topic', 'f-kr'].forEach(function(id) {
       var el = document.getElementById(id);
-      if (!el.disabled) el.value = '';
+      if (el) el.value = '';
     });
     applyFilters();
   }
 
   ['f-role', 'f-topic', 'f-kr'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('change', applyFilters);
+  });
+
   document.getElementById('btn-clear').addEventListener('click', clearFilters);
   document.getElementById('no-results-clear').addEventListener('click', clearFilters);
 
