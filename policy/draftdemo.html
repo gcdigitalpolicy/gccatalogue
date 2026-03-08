@@ -6,12 +6,16 @@
 <title>Policy and Directive on Service and Digital — Requirements</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-  .filter-grid { grid-template-columns: repeat(5, 1fr); }
-  @media (max-width: 900px) { .filter-grid { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 600px) { .filter-grid { grid-template-columns: repeat(2, 1fr); } }
-  .card-instrument { font-size: 0.72rem; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 4px; display: inline-block; align-self: flex-start; }
-  .card-instrument.psd { background: #1a4b7a; }
-  .card-instrument.dsd { background: #284162; }
+  /* 5-column filter grid for this page */
+  .filter-grid { grid-template-columns: repeat(5, 1fr) !important; }
+  @media (max-width: 1000px) { .filter-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+  @media (max-width: 600px)  { .filter-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+
+  /* Instrument badge on cards */
+  .card-top { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .card-instr { font-size: 0.72rem; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 4px; }
+  .badge-psd  { background: #1a4b7a; }
+  .badge-dsd  { background: #5a3e8a; }
 </style>
 </head>
 <body>
@@ -39,7 +43,7 @@
     <div class="filter-grid">
       <div class="filter-group">
         <label for="f-instrument">Instrument</label>
-        <select id="f-instrument"><option value="">Policy and Directive</option></select>
+        <select id="f-instrument"><option value="">Policy &amp; Directive</option></select>
       </div>
       <div class="filter-group">
         <label for="f-role">Role</label>
