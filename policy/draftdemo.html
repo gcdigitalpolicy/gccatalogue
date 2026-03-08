@@ -3,109 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Filter — Policy on Service and Digital Requirements</title>
+<title>Policy and Directive on Service and Digital — Requirements</title>
+<link rel="stylesheet" href="styles.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif; font-size: 16px; color: #333; background: #fff; line-height: 1.5; }
-
-/* HEADER */
-.site-header { border-bottom: 1px solid #ddd; padding: 14px 0; background: #fff; }
-.site-header .inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 18px; text-decoration: none; }
-.brand img { height: 26px; }
-.brand .divider { width: 1px; height: 24px; background: #ccc; }
-.brand .site-title { font-size: 1rem; font-weight: 700; color: #26374a; }
-.brand .badge { font-size: 0.68rem; background: #26374a; color: #fff; padding: 2px 8px; border-radius: 20px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-left: 6px; vertical-align: middle; }
-.lang-link { font-size: 0.9rem; color: #284162; text-decoration: none; }
-.lang-link:hover { text-decoration: underline; }
-
-/* HERO */
-.hero { background: #f5f5f5; border-bottom: 1px solid #ddd; padding: 48px 32px; }
-.hero .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-.hero-text h1 { font-size: 1.9rem; font-weight: 700; color: #26374a; margin-bottom: 14px; }
-.hero-text p { font-size: 1rem; color: #555; max-width: 620px; margin-bottom: 20px; }
-.hero-text p a { color: #1a4b7a; }
-.hero-links { display: flex; flex-wrap: wrap; gap: 16px; }
-.hero-links a { font-size: 0.9rem; font-weight: 600; color: #1a4b7a; text-decoration: none; }
-.hero-links a:hover { text-decoration: underline; }
-.hero img { width: 180px; flex-shrink: 0; opacity: 0.85; }
-
-/* HERO (filter page variant) */
-.hero-simple { background: #f5f5f5; border-bottom: 1px solid #ddd; padding: 40px 32px; }
-.hero-simple .inner { max-width: 1100px; margin: 0 auto; }
-.hero-simple h1 { font-size: 1.9rem; font-weight: 700; color: #26374a; margin-bottom: 12px; }
-.hero-simple p { font-size: 1rem; color: #555; max-width: 700px; }
-.hero-simple p a { color: #1a4b7a; }
-
-/* FILTER BAR */
-.filter-bar { background: #26374a; padding: 28px 32px; }
-.filter-bar .inner { max-width: 1100px; margin: 0 auto; }
-.filter-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.filter-group label { display: block; font-size: 0.75rem; font-weight: 700; color: #bbb; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
-.filter-group select { width: 100%; padding: 8px 32px 8px 12px; border: none; border-radius: 4px; font-size: 0.88rem; color: #333; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555'/%3E%3C/svg%3E") no-repeat right 12px center; appearance: none; -webkit-appearance: none; cursor: pointer; }
-.filter-group select:focus { outline: 2px solid #fff; outline-offset: 2px; }
-.filter-footer { margin-top: 18px; display: flex; align-items: center; gap: 20px; }
-.btn-clear { background: transparent; border: 1px solid rgba(255,255,255,.4); color: #fff; padding: 7px 16px; border-radius: 4px; font-size: 0.85rem; cursor: pointer; font-family: inherit; }
-.btn-clear:hover { background: rgba(255,255,255,.1); }
-.result-count { color: rgba(255,255,255,.75); font-size: 0.88rem; }
-
-/* MAIN */
-main { max-width: 1100px; margin: 0 auto; padding: 48px 32px; min-height: 300px; }
-.page-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; flex-wrap: wrap; gap: 12px; }
-.page-meta .count { font-size: 0.9rem; color: #666; }
-.btn { display: inline-block; padding: 9px 18px; border-radius: 4px; font-size: 0.88rem; font-weight: 600; text-decoration: none; }
-.btn-primary { background: #26374a; color: #fff; }
-.btn-primary:hover { background: #1a2a3a; }
-
-/* SECTIONS & CARDS */
-.kr-section { margin-bottom: 48px; }
-.kr-section.hidden { display: none; }
-.kr-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #666; padding-bottom: 10px; border-bottom: 2px solid #e0e0e0; margin-bottom: 20px; }
-.req-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
-.req-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 20px; background: #fff; display: flex; flex-direction: column; gap: 12px; transition: box-shadow .15s; }
-.req-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,.09); }
-.req-card.hidden { display: none; }
-.card-clause { font-size: 0.78rem; font-weight: 700; color: #fff; background: #1a4b7a; padding: 2px 9px; border-radius: 4px; display: inline-block; align-self: flex-start; }
-.card-req { font-size: 0.92rem; line-height: 1.6; color: #222; flex: 1; }
-.card-role { font-size: 0.78rem; color: #555; background: #eef2f7; padding: 3px 10px; border-radius: 20px; display: inline-block; align-self: flex-start; }
-
-/* NO RESULTS */
-.no-results { display: none; text-align: center; padding: 80px 24px; color: #666; }
-.no-results p { font-size: 1.05rem; margin-bottom: 16px; }
-.no-results button { background: none; border: none; color: #1a4b7a; text-decoration: underline; cursor: pointer; font-size: 1rem; font-family: inherit; }
-
-/* HELP BAND */
-.help-band { background: #f5f5f5; border-top: 1px solid #ddd; padding: 48px 32px; margin-top: 16px; }
-.help-band .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 48px; }
-.help-band h2 { font-size: 1.3rem; color: #26374a; font-weight: 700; margin-bottom: 10px; }
-.help-band p { color: #555; font-size: 0.95rem; }
-.help-band p a { color: #1a4b7a; }
-.help-band img { width: 140px; flex-shrink: 0; }
-
-/* FOOTER */
-footer { background: #26374a; padding: 22px 32px; }
-footer .inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: flex-end; }
-footer img { height: 24px; filter: brightness(0) invert(1); }
-
-@media (max-width: 800px) { .filter-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 680px) {
-  .hero .inner, .help-band .inner { flex-direction: column; }
-  .hero img, .help-band img { display: none; }
-  .req-grid { grid-template-columns: 1fr; }
-  .page-meta { flex-direction: column; align-items: flex-start; }
-}
-@media (max-width: 500px) { .filter-grid { grid-template-columns: 1fr; } }
-
+  .filter-grid { grid-template-columns: repeat(5, 1fr); }
+  @media (max-width: 900px) { .filter-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .filter-grid { grid-template-columns: repeat(2, 1fr); } }
+  .card-instrument { font-size: 0.72rem; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 4px; display: inline-block; align-self: flex-start; }
+  .card-instrument.psd { background: #1a4b7a; }
+  .card-instrument.dsd { background: #284162; }
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="inner">
-    <a href="requirements-all.html" class="brand">
+    <a href="#" class="brand">
       <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg" alt="Government of Canada / Gouvernement du Canada">
       <div class="divider"></div>
-      <span class="site-title">PSD Requirements <span class="badge">Alpha</span></span>
+      <span class="site-title">PSD &amp; DSD Requirements <span class="badge">Alpha</span></span>
     </a>
     <a href="#" class="lang-link">Français</a>
   </div>
@@ -113,14 +29,18 @@ footer img { height: 24px; filter: brightness(0) invert(1); }
 
 <div class="hero-simple">
   <div class="inner">
-    <h1>Filter requirements</h1>
-    <p>Find requirements from the <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603">Policy on Service and Digital</a> by role, topic, principle, or key result. <a href="requirements-all.html">View all requirements</a>.</p>
+    <h1>Policy and Directive on Service and Digital — Requirements</h1>
+    <p>Find requirements from the <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603">Policy on Service and Digital</a> and the <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">Directive on Service and Digital</a> by instrument, role, topic, principle, or key result.</p>
   </div>
 </div>
 
 <div class="filter-bar">
   <div class="inner">
     <div class="filter-grid">
+      <div class="filter-group">
+        <label for="f-instrument">Instrument</label>
+        <select id="f-instrument"><option value="">Policy and Directive</option></select>
+      </div>
       <div class="filter-group">
         <label for="f-role">Role</label>
         <select id="f-role"><option value="">All roles</option></select>
@@ -159,194 +79,7 @@ footer img { height: 24px; filter: brightness(0) invert(1); }
   </div>
 </footer>
 
-<script>
-var requirements = [
-  {clause:'4.1.1',req:'Coordinating the activities of the Secretary, Comptroller General, Chief Human Resources Officer and CIO of Canada with a view to embed the digital principles in the secretariat\'s activities.',role:'President of the Treasury Board',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Deliver value to the people of Canada',topic:'Service and Program Design'},
-  {clause:'4.2.1',req:'Integrating digital literacy proficiency in the position profiles of governor in council positions for deputy ministers, associate deputy ministers and deputy heads appointed to departments;',role:'Clerk of the Privy Council',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.2.2',req:'Determining mandatory training on digital for deputy ministers, associate deputy ministers and deputy heads appointed to departments;',role:'Clerk of the Privy Council',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.2.3',req:'Integrating service and digital objectives in deputy ministers, associate deputy ministers and deputy heads performance agreements; and,',role:'Clerk of the Privy Council',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.2.4',req:'Ensuring representation of digital expertise on the Committee of Senior Officials (COSO).',role:'Clerk of the Privy Council',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.3.1',req:'Ensuring that TBS internal processes are conducive to the implementation of the digital principles;',role:'Secretary of the Treasury Board',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Deliver value to the people of Canada',topic:'Service and Program Design'},
-  {clause:'4.3.2',req:'Promoting digital at the Deputy Minister Committees (Coordinating Committee of Deputy Ministers, Committee of Senior Officials, Board of Management and Renewal);',role:'Secretary of the Treasury Board',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Deliver value to the people of Canada',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.3.3',req:'Recommending consequences to DM level officials at the Committee of Senior Officials (COSO); and',role:'Secretary of the Treasury Board',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Service and Program Design'},
-  {clause:'4.3.4',req:'Conducting risk-based monitoring, providing guidance and recommending corrective actions regarding:',role:'Secretary of the Treasury Board',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Service and Program Design'},
-  {clause:'4.3.4.1',req:'Compliance with this policy and its supporting instruments;',role:'Secretary of the Treasury Board',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Service and Program Design'},
-  {clause:'4.3.4.2',req:'Departmental performance on service, data and technology; and',role:'Secretary of the Treasury Board',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Performance Measurement'},
-  {clause:'4.3.4.3',req:'The service, data and technology management functions across government.',role:'Secretary of the Treasury Board',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.4.1',req:'Providing enterprise direction and the whole-of-government view of Government of Canada service health, including the enabling foundations required for delivery such as data, and technology,  including:',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Take an ecosystem approach',topic:'Service and Program Design'},
-  {clause:'4.4.1.1',req:'Providing an annual summary of progress towards digital government, along with an enterprise scorecard.',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Deliver value to the people of Canada',topic:'Performance Measurement'},
-  {clause:'4.4.2',req:'Establishing and chairing a senior-level body that is responsible for providing advice and recommendations, in support of the Government of Canada’s priorities and the Government of Canada digital principles:',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Deliver value to the people of Canada',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.4.2.1',req:'Strategic direction for the management of external and internal enterprise services, and their enabling functions information, IT, data and cybersecurity.',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Deliver value to the people of Canada',topic:'Service and Program Design'},
-  {clause:'4.4.2.2',req:'Enterprise-wide review of performance and systemic risks for High Impact High Risk services and coordination of cross-government action as required.',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Take an ecosystem approach',topic:'Performance Measurement'},
-  {clause:'4.4.3',req:'Establishing an IESO Board to provide enterprise oversight and recommendations to support coordination and transparency for shared digital components that underpin government service delivery;',role:'Chief Information Officer of Canada',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Take an ecosystem approach',topic:'IESO Functions'},
-  {clause:'4.4.4',req:'Providing advice to the Secretary of the Treasury Board of Canada, the President of the Treasury Board of Canada and the Clerk of the Privy Council about:',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Take an ecosystem approach',topic:'Service and Program Design'},
-  {clause:'4.4.4.1',req:'Governing and managing the service lifecycle, including enabling foundations required for delivery such as data and technology; and',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Take an ecosystem approach',topic:'Delivery-Driven Practices'},
-  {clause:'4.4.4.2',req:'Contentious / sensitive matters unresolved by the IESO board.',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Take an ecosystem approach',topic:'IESO Functions'},
-  {clause:'4.4.5',req:'Establishing and maintaining enterprise standards for digital public infrastructure,  with a focus on interoperability, portability and reuse, including but not limited to: Shared Infrastructure, Digital Identity, Digital Payments, Data Exchange, Data and Hardware',role:'Chief Information Officer of Canada',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Enterprise Tech Platforms'},
-  {clause:'4.4.6',req:'Identifying High-Impact, High-Risk services for the Government of Canada. This list is renewed annually;',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Performance Measurement'},
-  {clause:'4.4.7',req:'Providing enterprise-wide leadership on knowledge standards for the digital  community, including determining the acceptable combination of education, training and/or experience required for the Treasury Board Executive Group (EX) Qualification Standard;',role:'Chief Information Officer of Canada',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.4.8',req:'Promoting the adoption of open-source and open-standards;',role:'Chief Information Officer of Canada',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Interoperability & API Standards'},
-  {clause:'4.4.9',req:'Executing  decisions on the management of cyber security risks on behalf of the Government of Canada and directing a deputy head to implement a specific response to cyber security events, including assessing whether there has been a privacy breach, implementing security controls, and ensuring that systems that put the Government of Canada at risk are disconnected or removed, when warranted; and',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Cyber Security'},
-  {clause:'4.4.10',req:'Providing direction and defining enterprise-wide requirements for information and communication technologies (ICT) accessibility.',role:'Chief Information Officer of Canada',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Take an ecosystem approach',topic:'Interoperability & API Standards'},
-  {clause:'4.4.11',req:'Defining cyber security requirements to ensure that Government of Canada and departmental information and data, application, systems and networks are secure, reliable and trusted;',role:'Chief Information Officer of Canada',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Cyber Security'},
-  {clause:'4.4.12',req:'Providing direction and defining enterprise-wide requirements for the management of identities, credentials and access for the Government of Canada and departments.',role:'Chief Information Officer of Canada',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Enterprise Tech Platforms'},
-  {clause:'4.5.1',req:'Ensuring that Canada\'s digital    sovereignty is not unduly limited throughout the lifecycle of services',role:'Deputy Heads, including deputy heads of IESOs',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Service and Program Design'},
-  {clause:'4.5.2',req:'Advising the Chief Information Officer of Canada on a timely basis when  there are significant issues with complying with this policy and its supporting instruments',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Service and Program Design'},
-  {clause:'4.5.3',req:'Designating a service owner for each external and each internal  enterprise service for which their organization is responsible.',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.5.4',req:'Ensuring that service owners and designated officials follow processes that are conducive with the service lifecycle.',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Continuously learn and improve',topic:'Delivery-Driven Practices'},
-  {clause:'4.5.5',req:'Publishing an up-to-date inventory of external and internal enterprise services for which their organization is responsible, including the name and title of the service owner for each service, in the prescribed platform, updated at least annually.',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Deliver value to the people of Canada',topic:'Service and Program Design'},
-  {clause:'4.5.6',req:'Ensuring service performance and delivery risks are embedded in the departmental integrated risk management, including by specifying thresholds at which these risks must be brought to the deputy heads attention.',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Manage risk proportionately',topic:'Performance Measurement'},
-  {clause:'4.5.7',req:'Ensuring employees have access to the tools required to use data and evidence in day-to-day decision-making and continuous improvement.',role:'Deputy Heads, including deputy heads of IESOs',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.5.8',req:'Reusing existing platforms and solutions before submitting proposals to the IESO board and approve justification where reuse is not pursued. Contributing improvements back to common components where reuse occurs or submitting new components to the catalogue if a common solution does not exist',role:'Deputy Heads, including deputy heads of IESOs',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Enterprise Tech Platforms'},
-  {clause:'4.5.9',req:'Abiding by / deferring to the assessments and assurance artifacts  of common components prepared by their counterparts. New assessments and assurances must be limited to that which is unique to their departmental use of common component.',role:'Deputy Heads, including deputy heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Take an ecosystem approach',topic:'Service and Program Design'},
-  {clause:'4.5.10',req:'Collaborating with other Deputy Heads and the GC CIO to address shared service challenges, reduce duplication and improve system-wide outcomes to further DPI.',role:'Deputy Heads, including deputy heads of IESOs',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Interoperability & API Standards'},
-  {clause:'4.5.11',req:'Managing data as a strategic asset, including enabling appropriate access, reuse and releasing information and data openly.',role:'Deputy Heads, including deputy heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Take an ecosystem approach',topic:'Data Use in Delivery'},
-  {clause:'4.5.12',req:'Designating officials responsible for supporting service owners within their organization, including for digital, information technology and data functions.',role:'Deputy Heads, including deputy heads of IESOs',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.5.13',req:'Deciding whether  to delegate decision-making authority to the lowest effective level, so that teams can address service issues, manage risks and implement improvements in a timely manner.',role:'Deputy Heads, including deputy heads of IESOs',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Digital and Data Roles and Skills'},
-  {clause:'4.5.14',req:'Ensuring that services have feedback mechanisms  throughout their lifecycle to identify opportunities for improvement.',role:'Deputy Heads, including deputy heads of IESOs',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Continuously learn and improve',topic:'Performance Measurement'},
-  {clause:'4.5.15',req:'Ensuring service owners and designated officials are held accountable for minimizing administrative burden, including learning costs, compliance costs, and psychological costs experienced by people and organizations when accessing or using services.',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Deliver value to the people of Canada',topic:'Delivery-Driven Practices'},
-  {clause:'4.5.16',req:'Creating a culture that enables experimentation and pivoting based on user findings.',role:'Deputy Heads, including deputy heads of IESOs',kr:'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',principle:'Build and empower mulidisciplinary teams',topic:'Delivery-Driven Practices'},
-  {clause:'4.5.17',req:'Publishing a summary of user feedback and improvement plan for HIHR services.',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Continuously learn and improve',topic:'Performance Measurement'},
-  {clause:'4.5.18',req:'Ensuring decisions  and decision-making processes are documented to support accountability, continuity, audit/evaluation and legal obligations.',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Deliver value to the people of Canada',topic:'Data/IM Enablement Infrastructure'},
-  {clause:'4.5.19',req:'Automated decision systems are designed and operated to reduce the likelihood of unintended bias or unfair outcomes and to respect human rights obligations.',role:'Deputy Heads, including deputy heads of IESOs',kr:'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',principle:'Deliver value to the people of Canada',topic:'Automated Decision-Making & AI'},
-  {clause:'4.5.20',req:'Abiding by the operational, technical, day-to-day, and scientific policies relative to internal enterprise services.',role:'Deputy Heads, including deputy heads of IESOs',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Service and Program Design'},
-  {clause:'4.5.21',req:'Monitoring adoption and usage of common components across departments, in alignment with this policy.',role:'Deputy Heads, including deputy heads of IESOs',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Interoperability & API Standards'},
-  {clause:'4.5.22',req:'Identifying duplication, gaps and opportunities for reuse across the enterprise.',role:'Deputy Heads, including deputy heads of IESOs',kr:'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',principle:'Take an ecosystem approach',topic:'Interoperability & API Standards'},
-  {clause:'4.6.1',req:'Designing infrastructure and enterprise services as a part of a connected system and reduce barriers to access, reuse and interoperability.',role:'Deputy Heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Take an ecosystem approach',topic:'Enterprise Tech Platforms'},
-  {clause:'4.6.2',req:'Exercising operational authority without TBS intervention.',role:'Deputy Heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Build and empower mulidisciplinary teams',topic:'IESO Functions'},
-  {clause:'4.6.3',req:'Managing service relationships directly with departments.',role:'Deputy Heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Build and empower mulidisciplinary teams',topic:'IESO Functions'},
-  {clause:'4.6.4',req:'Prioritizing enterprise services based on public value, impact, and risk.',role:'Deputy Heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Manage risk proportionately',topic:'IESO Functions'},
-  {clause:'4.6.5',req:'Providing shared tools and enable user research, testing and feedback for departments.',role:'Deputy Heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Build and empower mulidisciplinary teams',topic:'IESO Functions'},
-  {clause:'4.6.6',req:'Participating in the IESO Board and providing accurate, timely information on enterprise services, common components and their use.',role:'Deputy Heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Build and empower mulidisciplinary teams',topic:'IESO Functions'},
-  {clause:'4.6.7',req:'Providing open patterns/components that are demonstrated to be most effective and make them discoverable. Supporting adoption through documentation, communities of practice, and onboarding.',role:'Deputy Heads of IESOs',kr:'Departments can use reliable, stable, interoperable platforms, internal services, and data;',principle:'Take an ecosystem approach',topic:'IESO Functions'}
-];
-
-var krOrder = [
-  'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',
-  'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',
-  'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',
-  'Departments can use reliable, stable, interoperable platforms, internal services, and data;'
-];
-
-var krLabels = {
-  'People receive simple, fast, inclusive, and secure programs and services that meet their needs;': 'People receive simple, fast, inclusive, and secure programs and services that meet their needs',
-  'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.': 'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology',
-  'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and': 'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation',
-  'Departments can use reliable, stable, interoperable platforms, internal services, and data;': 'Departments can use reliable, stable, interoperable platforms, internal services, and data'
-};
-
-function buildCards(container, allCards) {
-  var grouped = {};
-  requirements.forEach(function(r) {
-    var k = r.role || 'Other';
-    if (!grouped[k]) grouped[k] = [];
-    grouped[k].push(r);
-  });
-
-  var roleOrder = Object.keys(grouped).sort();
-
-  roleOrder.forEach(function(role) {
-    if (!grouped[role]) return;
-    var section = document.createElement('div');
-    section.className = 'kr-section';
-    section.dataset.role = role;
-
-    var label = document.createElement('p');
-    label.className = 'kr-label';
-    label.textContent = role;
-    section.appendChild(label);
-
-    var grid = document.createElement('div');
-    grid.className = 'req-grid';
-
-    grouped[role].forEach(function(r) {
-      var card = document.createElement('div');
-      card.className = 'req-card';
-      card.dataset.role = r.role;
-      card.dataset.topic = r.topic;
-      card.dataset.principle = r.principle;
-      card.dataset.kr = r.kr;
-      card.innerHTML =
-        '<span class="card-clause">Clause\u00a0' + r.clause + '</span>' +
-        '<p class="card-req">' + r.req + '</p>' +
-        '<span class="card-role">' + r.role + '</span>';
-      grid.appendChild(card);
-      if (allCards) allCards.push({ card: card, section: section });
-    });
-
-    section.appendChild(grid);
-    container.appendChild(section);
-  });
-}
-
-var allCards = [];
-
-document.addEventListener('DOMContentLoaded', function() {
-  buildCards(document.getElementById('content'), allCards);
-
-  function populateSelect(id, field) {
-    var sel = document.getElementById(id);
-    var vals = Array.from(new Set(requirements.map(function(r) { return r[field]; }).filter(Boolean))).sort();
-    vals.forEach(function(v) {
-      var o = document.createElement('option');
-      o.value = v;
-      o.textContent = (field === 'kr' && krLabels[v]) ? krLabels[v] : v;
-      sel.appendChild(o);
-    });
-    if (vals.length === 0) {
-      sel.disabled = true;
-      sel.style.opacity = '0.5';
-      sel.style.cursor = 'not-allowed';
-    }
-  }
-  populateSelect('f-role', 'role');
-  populateSelect('f-topic', 'topic');
-  populateSelect('f-principle', 'principle');
-  populateSelect('f-kr', 'kr');
-
-  function applyFilters() {
-    var fRole = document.getElementById('f-role').value;
-    var fTopic = document.getElementById('f-topic').value;
-    var fPrinciple = document.getElementById('f-principle').value;
-    var fKr = document.getElementById('f-kr').value;
-    var visible = 0;
-
-    allCards.forEach(function(item) {
-      var c = item.card;
-      var show = (!fRole || c.dataset.role === fRole) &&
-                 (!fTopic || c.dataset.topic === fTopic) &&
-                 (!fPrinciple || c.dataset.principle === fPrinciple) &&
-                 (!fKr || c.dataset.kr === fKr);
-      c.classList.toggle('hidden', !show);
-      if (show) visible++;
-    });
-
-    document.querySelectorAll('.kr-section').forEach(function(sec) {
-      var any = sec.querySelectorAll('.req-card:not(.hidden)').length > 0;
-      sec.classList.toggle('hidden', !any);
-    });
-
-    document.getElementById('result-count').textContent = visible + ' of ' + requirements.length + ' requirements';
-    document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
-  }
-
-  function clearFilters() {
-    ['f-role', 'f-topic', 'f-principle', 'f-kr'].forEach(function(id) {
-      var el = document.getElementById(id);
-      if (!el.disabled) el.value = '';
-    });
-    applyFilters();
-  }
-
-  ['f-role', 'f-topic', 'f-principle', 'f-kr'].forEach(function(id) {
-    document.getElementById(id).addEventListener('change', applyFilters);
-  });
-  document.getElementById('btn-clear').addEventListener('click', clearFilters);
-  document.getElementById('no-results-clear').addEventListener('click', clearFilters);
-
-  applyFilters();
-});
-
-</script>
+<script src="combined-requirements.js"></script>
+<script src="combined-filter.js"></script>
 </body>
 </html>
