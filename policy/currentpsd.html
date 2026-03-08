@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filter — Policy on Service and Digital Requirements</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif; font-size: 16px; color: #333; background: #fff; line-height: 1.5; }
+
+/* HEADER */
+.site-header { border-bottom: 1px solid #ddd; padding: 14px 0; background: #fff; }
+.site-header .inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 18px; text-decoration: none; }
+.brand img { height: 26px; }
+.brand .divider { width: 1px; height: 24px; background: #ccc; }
+.brand .site-title { font-size: 1rem; font-weight: 700; color: #26374a; }
+.brand .badge { font-size: 0.68rem; background: #26374a; color: #fff; padding: 2px 8px; border-radius: 20px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-left: 6px; vertical-align: middle; }
+.lang-link { font-size: 0.9rem; color: #284162; text-decoration: none; }
+.lang-link:hover { text-decoration: underline; }
+
+/* HERO */
+.hero { background: #f5f5f5; border-bottom: 1px solid #ddd; padding: 48px 32px; }
+.hero .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.hero-text h1 { font-size: 1.9rem; font-weight: 700; color: #26374a; margin-bottom: 14px; }
+.hero-text p { font-size: 1rem; color: #555; max-width: 620px; margin-bottom: 20px; }
+.hero-text p a { color: #1a4b7a; }
+.hero-links { display: flex; flex-wrap: wrap; gap: 16px; }
+.hero-links a { font-size: 0.9rem; font-weight: 600; color: #1a4b7a; text-decoration: none; }
+.hero-links a:hover { text-decoration: underline; }
+.hero img { width: 180px; flex-shrink: 0; opacity: 0.85; }
+
+/* HERO (filter page variant) */
+.hero-simple { background: #f5f5f5; border-bottom: 1px solid #ddd; padding: 40px 32px; }
+.hero-simple .inner { max-width: 1100px; margin: 0 auto; }
+.hero-simple h1 { font-size: 1.9rem; font-weight: 700; color: #26374a; margin-bottom: 12px; }
+.hero-simple p { font-size: 1rem; color: #555; max-width: 700px; }
+.hero-simple p a { color: #1a4b7a; }
+
+/* FILTER BAR */
+.filter-bar { background: #26374a; padding: 28px 32px; }
+.filter-bar .inner { max-width: 1100px; margin: 0 auto; }
+.filter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.filter-group label { display: block; font-size: 0.75rem; font-weight: 700; color: #bbb; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
+.filter-group select { width: 100%; padding: 8px 32px 8px 12px; border: none; border-radius: 4px; font-size: 0.88rem; color: #333; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555'/%3E%3C/svg%3E") no-repeat right 12px center; appearance: none; -webkit-appearance: none; cursor: pointer; }
+.filter-group select:focus { outline: 2px solid #fff; outline-offset: 2px; }
+.filter-footer { margin-top: 18px; display: flex; align-items: center; gap: 20px; }
+.btn-clear { background: transparent; border: 1px solid rgba(255,255,255,.4); color: #fff; padding: 7px 16px; border-radius: 4px; font-size: 0.85rem; cursor: pointer; font-family: inherit; }
+.btn-clear:hover { background: rgba(255,255,255,.1); }
+.result-count { color: rgba(255,255,255,.75); font-size: 0.88rem; }
+
+/* MAIN */
+main { max-width: 1100px; margin: 0 auto; padding: 48px 32px; min-height: 300px; }
+.page-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; flex-wrap: wrap; gap: 12px; }
+.page-meta .count { font-size: 0.9rem; color: #666; }
+.btn { display: inline-block; padding: 9px 18px; border-radius: 4px; font-size: 0.88rem; font-weight: 600; text-decoration: none; }
+.btn-primary { background: #26374a; color: #fff; }
+.btn-primary:hover { background: #1a2a3a; }
+
+/* SECTIONS & CARDS */
+.kr-section { margin-bottom: 48px; }
+.kr-section.hidden { display: none; }
+.kr-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #666; padding-bottom: 10px; border-bottom: 2px solid #e0e0e0; margin-bottom: 20px; }
+.req-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+.req-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 20px; background: #fff; display: flex; flex-direction: column; gap: 12px; transition: box-shadow .15s; }
+.req-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,.09); }
+.req-card.hidden { display: none; }
+.card-clause { font-size: 0.78rem; font-weight: 700; color: #fff; background: #1a4b7a; padding: 2px 9px; border-radius: 4px; display: inline-block; align-self: flex-start; }
+.card-req { font-size: 0.92rem; line-height: 1.6; color: #222; flex: 1; }
+.card-role { font-size: 0.78rem; color: #555; background: #eef2f7; padding: 3px 10px; border-radius: 20px; display: inline-block; align-self: flex-start; }
+
+/* NO RESULTS */
+.no-results { display: none; text-align: center; padding: 80px 24px; color: #666; }
+.no-results p { font-size: 1.05rem; margin-bottom: 16px; }
+.no-results button { background: none; border: none; color: #1a4b7a; text-decoration: underline; cursor: pointer; font-size: 1rem; font-family: inherit; }
+
+/* HELP BAND */
+.help-band { background: #f5f5f5; border-top: 1px solid #ddd; padding: 48px 32px; margin-top: 16px; }
+.help-band .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 48px; }
+.help-band h2 { font-size: 1.3rem; color: #26374a; font-weight: 700; margin-bottom: 10px; }
+.help-band p { color: #555; font-size: 0.95rem; }
+.help-band p a { color: #1a4b7a; }
+.help-band img { width: 140px; flex-shrink: 0; }
+
+/* FOOTER */
+footer { background: #26374a; padding: 22px 32px; }
+footer .inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: flex-end; }
+footer img { height: 24px; filter: brightness(0) invert(1); }
+
+@media (max-width: 800px) { .filter-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 680px) {
+  .hero .inner, .help-band .inner { flex-direction: column; }
+  .hero img, .help-band img { display: none; }
+  .req-grid { grid-template-columns: 1fr; }
+  .page-meta { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 500px) { .filter-grid { grid-template-columns: 1fr; } }
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="#" class="brand">
+      <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg" alt="Government of Canada / Gouvernement du Canada">
+      <div class="divider"></div>
+      <span class="site-title">PSD Requirements <span class="badge">Alpha</span></span>
+    </a>
+    <a href="#" class="lang-link">Français</a>
+  </div>
+</header>
+
+<div class="hero-simple">
+  <div class="inner">
+    <h1>Policy on Service and Digital — Requirements</h1>
+    <p>Find requirements from the <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603">Policy on Service and Digital</a> by role, topic, or key result.</p>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <div class="inner">
+    <div class="filter-grid">
+      <div class="filter-group">
+        <label for="f-role">Role</label>
+        <select id="f-role"><option value="">All roles</option></select>
+      </div>
+      <div class="filter-group">
+        <label for="f-topic">Topic</label>
+        <select id="f-topic"><option value="">All topics</option></select>
+      </div>
+      <div class="filter-group">
+        <label for="f-kr">Key Result</label>
+        <select id="f-kr"><option value="">All key results</option></select>
+      </div>
+    </div>
+    <div class="filter-footer">
+      <button class="btn-clear" id="btn-clear" type="button">Clear filters</button>
+      <span class="result-count" id="result-count"></span>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div id="content"></div>
+  <div class="no-results" id="no-results">
+    <p>No requirements match your filters.</p>
+    <button id="no-results-clear">Clear all filters</button>
+  </div>
+</main>
+
+<footer>
+  <div class="inner">
+    <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg" alt="Symbol of the Government of Canada">
+  </div>
+</footer>
+
+<script>
+var requirements = [
+  {clause:'4.1.1',req:'Establishing governance to ensure the integrated management of service, information, data, information technology (IT) and cyber security within their department.',role:'Deputy Heads',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.1.2',req:'Designating a departmental CIO responsible for leading the departmental IT, information and data management functions.',role:'Deputy Heads',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.1.3',req:'Designating an official responsible for leading the departmental service management function.',role:'Deputy Heads',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.1.4',req:'Designating an official responsible for leading the departmental cyber security management function.',role:'Deputy Heads',topic:'Cyber Security',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.1.5',req:'Providing the departmental CIO and the official responsible for service with direct access to the deputy head.',role:'Deputy Heads',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.1.6',req:'Ensuring departmental participation in enterprise governance to support the development and implementation of enterprise-wide policy instruments and architecture.',role:'Deputy Heads',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.1.7',req:'Approving an annual forward-looking three-year departmental plan for the integrated management of service, information, data, IT and cyber security, that aligns with the CIO of Canada\'s enterprise-wide integrated plan, and includes a progress report on how it was implemented in the previous year.',role:'Deputy Heads',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.1.8',req:'Providing support for innovation and experimentation in service, information, data, IT and cyber security.',role:'Deputy Heads',topic:'Delivery-Driven Practices',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.9',req:'Informing the Treasury Board of Canada Secretariat of activities related to this policy that involve the development of national or international IT, information or data standards.',role:'Deputy Heads',topic:'Interoperability and Standards',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.1.10',req:'Ensuring the development and delivery of client-centric service by design, including access, inclusion, accessibility, security, privacy, simplicity and choice of official language.',role:'Deputy Heads',topic:'Service and Program Design',kr:'Service design and delivery is client-centric by design',principle:''},
+  {clause:'4.1.11',req:'Maximizing the online end-to-end availability of services and their ease of use to complement all service delivery channels.',role:'Deputy Heads',topic:'Service and Program Design',kr:'Service design and delivery is client-centric by design',principle:''},
+  {clause:'4.1.12',req:'Approving the department\'s service inventory and annual updates.',role:'Deputy Heads',topic:'Service and Program Design',kr:'Service design and delivery is client-centric by design',principle:''},
+  {clause:'4.1.13',req:'Ensuring that services have comprehensive and transparent client-centric standards, related targets, and performance information for all service delivery channels in use, and that this information is available on the department\'s web presence.',role:'Deputy Heads',topic:'Performance Measurement',kr:'Service design and delivery is client-centric by design',principle:''},
+  {clause:'4.1.14',req:'Ensuring that services are reviewed to identify opportunities for improvement.',role:'Deputy Heads',topic:'Performance Measurement',kr:'Service design and delivery is client-centric by design',principle:''},
+  {clause:'4.1.15',req:'Ensuring that information and data are managed as a strategic asset to support government operations, service delivery, analysis and decision-making.',role:'Deputy Heads',topic:'Data Use in Delivery',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.16',req:'Ensuring that methodologies, mechanisms and tools are implemented to support information and data life-cycle management.',role:'Deputy Heads',topic:'Data/IM Enablement Infrastructure',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.17',req:'Ensuring that departmental responsibilities and accountability structures are clearly defined for the management of information and data.',role:'Deputy Heads',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.1.18',req:'Ensuring that data are managed to reduce redundancy and enable interoperability.',role:'Deputy Heads',topic:'Interoperability and Standards',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.19',req:'Ensuring that, when managing personal information or data, including in the context of data interoperability, the privacy of individuals is protected according to the Privacy Act and any other relevant legislation, policy or agreement.',role:'Deputy Heads',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.20',req:'Ensuring that privacy is addressed in the context of any plan or strategy to manage departmental information or data.',role:'Deputy Heads',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.21',req:'Ensuring that sensitive information under the department\'s control is protected according to the Policy on Government Security and any relevant legislation, policy or agreement.',role:'Deputy Heads',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.22',req:'Maximizing the release of departmental information and data as an open resource, discoverable through the Government of Canada open government portal, while respecting information security, privacy and legal considerations.',role:'Deputy Heads',topic:'Data Use in Delivery',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.23',req:'Prioritizing departmental information and data to be added to the Government of Canada\'s open government portal, informed by public demand.',role:'Deputy Heads',topic:'Data Use in Delivery',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.24',req:'Ensuring that decisions and decision-making processes are documented to account for and support the continuity of departmental operations, permit the reconstruction of how policies and programs have evolved, support litigation readiness, and allow for independent evaluation, audit and review.',role:'Deputy Heads',topic:'Data/IM Enablement Infrastructure',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.1.25',req:'Ensuring that departmental operations are digitally enabled.',role:'Deputy Heads',topic:'Enterprise Tech Platforms',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.26',req:'Ensuring that, for newly procured or developed ICT solutions and equipment, applicable requirements regarding accessibility, official languages, protection of personal information, the environment, and security are addressed by design.',role:'Deputy Heads',topic:'Enterprise Tech Platforms',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.27',req:'Using enterprise or shared IT solutions, assets, and services to avoid duplication, when available and appropriate.',role:'Deputy Heads',topic:'Enterprise Tech Platforms',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.28',req:'Ensuring the responsible and ethical use of automated decision systems, in accordance with TBS direction and guidance, including ensuring decisions are efficient, accountable and unbiased, and ensuring transparency and disclosure regarding use of the systems and ongoing assessment and management of risks.',role:'Deputy Heads',topic:'Automated Decision-Making and AI',kr:'Service design and delivery is client-centric by design',principle:''},
+  {clause:'4.1.29',req:'Providing authorized users of the departmental electronic network and devices with open access to the Internet, including Government of Canada and external Web 2.0 tools and services that enhance productivity, communication and open collaboration, and limiting access only where necessary to manage security risks.',role:'Deputy Heads',topic:'Enterprise Tech Platforms',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.30',req:'Informing authorized users of departmental electronic networks and devices of expectations for acceptable and unacceptable use, monitoring practices being applied, and consequences for unacceptable use.',role:'Deputy Heads',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.31',req:'Clearly identifying and establishing departmental roles and responsibilities for reporting cyber security events and incidents, including events that result in a privacy breach, in accordance with the direction from the CIO of Canada.',role:'Deputy Heads',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.32',req:'Managing departmental approaches for identity assurance and accepting trusted digital identities to support interoperability by using approved trust frameworks.',role:'Deputy Heads',topic:'Interoperability and Standards',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.1.33',req:'Ensuring departmental workforce awareness, capacity and capability to meet departmental and enterprise service, information, data, IT, and cyber security requirements.',role:'Deputy Heads',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.1.34',req:'Supporting the CIO of Canada\'s enterprise-wide talent management and community development initiatives.',role:'Deputy Heads',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.1.35',req:'Consulting with the CIO of Canada before appointing, deploying or otherwise replacing the departmental CIO.',role:'Deputy Heads',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.1.36',req:'Ensuring that, for the purposes of the Treasury Board Executive Group (EX) Qualifications Standard, the departmental CIO possesses an acceptable combination of education, training and/or experience.',role:'Deputy Heads',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.1.37',req:'Monitoring compliance with this policy and its supporting instruments within their department.',role:'Deputy Heads',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.1.38',req:'Advising the Secretary of the Treasury Board on a timely basis when there are significant issues with complying with this policy and its supporting instruments.',role:'Deputy Heads',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.1.39',req:'Ensuring that appropriate and timely remedial action is taken when significant issues with compliance arise within the department.',role:'Deputy Heads',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.2.1',req:'Establishing and chairing a senior-level body responsible for providing advice and recommendations regarding strategic direction for the management of enterprise services, information, data, IT and cyber security, and prioritization of Government of Canada demand for IT shared services and assets.',role:'Secretary of the Treasury Board',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.3.1',req:'Conducting risk-based monitoring, providing guidance, and recommending corrective actions regarding compliance with this policy and its supporting instruments, departmental performance on service, information, IT and cyber security management, and the service, information, IT and cyber security management function across government.',role:'Secretary of the Treasury Board',topic:'Performance Measurement',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.3.2',req:'Advising deputy heads on a timely basis when significant incidents of non-compliance with this policy and its supporting instruments are identified.',role:'Secretary of the Treasury Board',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.4.1',req:'Providing advice to the Secretary and President of the Treasury Board about governing and managing enterprise-wide information, data, IT, cyber security, and service design and delivery; prioritizing Government of Canada demand for IT shared services and assets; and using emerging technologies and the implications and opportunities of doing so.',role:'Chief Information Officer of Canada',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.4.2',req:'Providing direction on the enterprise-wide transition to digital government, including regularly reviewing and updating the Government of Canada Digital Standards; managing information, data, IT, and cyber security; and advising on enterprise-wide service design and delivery.',role:'Chief Information Officer of Canada',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.4.3',req:'Prescribing expectations with regard to enterprise architecture.',role:'Chief Information Officer of Canada',topic:'Interoperability and Standards',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.4',req:'Establishing and chairing an enterprise architecture review board mandated to define current and target architecture standards for the Government of Canada and review proposals for alignment from departments.',role:'Chief Information Officer of Canada',topic:'Interoperability and Standards',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.4.5',req:'Establishing priorities for IT investments (including cyber security investments) that are enterprise-wide in nature or that require the support of SSC.',role:'Chief Information Officer of Canada',topic:'Enterprise Tech Platforms',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.4.6',req:'Facilitating innovation and experimentation in service design and delivery, information, data, IT and cyber security.',role:'Chief Information Officer of Canada',topic:'Delivery-Driven Practices',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.7',req:'Approving an annual, forward-looking three-year enterprise-wide plan that establishes the strategic direction for the integrated management of service, information, data, IT, and cyber security, and ensuring that the plan includes a progress report on how it was implemented in the previous year.',role:'Chief Information Officer of Canada',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.4.8',req:'Prescribing enterprise-wide information and data standards for quality, accessibility, and data interoperability, including common architecture taxonomies and classifications, quality requirements and life-cycle management direction.',role:'Chief Information Officer of Canada',topic:'Interoperability and Standards',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.9',req:'Prescribing the use of specific IT business processes, technologies, applications and IT resource management approaches, including direction for their life-cycle management.',role:'Chief Information Officer of Canada',topic:'Enterprise Tech Platforms',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.10',req:'Providing enterprise-wide advice for IT solution procurement that maximizes flexibility for the Government of Canada.',role:'Chief Information Officer of Canada',topic:'Enterprise Tech Platforms',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.11',req:'Providing direction and defining enterprise-wide requirements for information and communication technologies (ICT) accessibility.',role:'Chief Information Officer of Canada',topic:'Interoperability and Standards',kr:'Service design and delivery is client-centric by design',principle:''},
+  {clause:'4.4.12',req:'Supporting SSC procedures for assessing and accessing alternative provision of SSC services to support the authority of the Minister responsible for SSC.',role:'Chief Information Officer of Canada',topic:'Enterprise Tech Platforms',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.13',req:'Providing advice to the President of the Treasury Board to support the Treasury Board\'s review of the SSC Investment Plan to ensure alignment with established strategic direction and enterprise-wide priorities.',role:'Chief Information Officer of Canada',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.4.14',req:'Establishing guidance to support innovative practices and technologies, including open-source and open-standard applications, and agile application development.',role:'Chief Information Officer of Canada',topic:'Delivery-Driven Practices',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.15',req:'Working with departments to review and endorse digital initiatives, projects and investments, and review results.',role:'Chief Information Officer of Canada',topic:'Enterprise Governance',kr:'Integrated decision-making is supported by enterprise governance, planning and reporting',principle:''},
+  {clause:'4.4.16',req:'Defining cyber security requirements to ensure that Government of Canada and departmental information and data, applications, systems, and networks are secure, reliable and trusted.',role:'Chief Information Officer of Canada',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.17',req:'Executing decisions on the management of cyber security risks on behalf of the Government of Canada and directing a deputy head to implement a specific response to cyber security events, including assessing whether there has been a privacy breach, implementing security controls, and ensuring that systems that put the Government of Canada at risk are disconnected or removed, when warranted.',role:'Chief Information Officer of Canada',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.18',req:'Providing direction and defining enterprise-wide requirements for the management of identities, credentials, and access for the Government of Canada and departments.',role:'Chief Information Officer of Canada',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.4.19',req:'Providing enterprise-wide leadership on the development and sustainability of the information and IT functional community by using talent management and community development strategies.',role:'Chief Information Officer of Canada',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.4.20',req:'Providing enterprise-wide leadership on knowledge standards for the information and IT community, including determining the acceptable combination of education, training and/or experience required for the Treasury Board Executive Group (EX) Qualification Standard.',role:'Chief Information Officer of Canada',topic:'Digital and Data Roles and Skills',kr:'Workforce capacity and capability development is supported',principle:''},
+  {clause:'4.5.1',req:'Managing tools to support the monitoring of departmental electronic networks and devices.',role:'Deputy Head of SSC',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''},
+  {clause:'4.5.2',req:'Providing reports as required about the use of Government of Canada electronic networks and devices to assist deputy heads in the identification and investigation of issues and in the implementation of corrective action in the event of unacceptable use.',role:'Deputy Head of SSC',topic:'Cyber Security',kr:'Service delivery, business and program innovation are enabled by technology and data',principle:''}
+];
+
+
+var krOrder = [
+  'People receive simple, fast, inclusive, and secure programs and services that meet their needs;',
+  'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.',
+  'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and',
+  'Departments can use reliable, stable, interoperable platforms, internal services, and data;'
+];
+
+var krLabels = {
+  'People receive simple, fast, inclusive, and secure programs and services that meet their needs;': 'People receive simple, fast, inclusive, and secure programs and services that meet their needs',
+  'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology.': 'The federal digital workforce has the capacity, multidisciplinary skills, and clear accountability and feedback loops to steward and continuously improve services and enabling technology',
+  'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation; and': 'Canada benefits from digital public infrastructure that is secure, resilient, interoperable, protects sovereignty, and enables innovation',
+  'Departments can use reliable, stable, interoperable platforms, internal services, and data;': 'Departments can use reliable, stable, interoperable platforms, internal services, and data'
+};
+
+function buildCards(container, allCards) {
+  var grouped = {};
+  requirements.forEach(function(r) {
+    var k = r.role || 'Other';
+    if (!grouped[k]) grouped[k] = [];
+    grouped[k].push(r);
+  });
+
+  var roleOrder = Object.keys(grouped).sort();
+
+  roleOrder.forEach(function(role) {
+    if (!grouped[role]) return;
+    var section = document.createElement('div');
+    section.className = 'kr-section';
+    section.dataset.role = role;
+
+    var label = document.createElement('p');
+    label.className = 'kr-label';
+    label.textContent = role;
+    section.appendChild(label);
+
+    var grid = document.createElement('div');
+    grid.className = 'req-grid';
+
+    grouped[role].forEach(function(r) {
+      var card = document.createElement('div');
+      card.className = 'req-card';
+      card.dataset.role = r.role;
+      card.dataset.topic = r.topic;
+      card.dataset.principle = r.principle;
+      card.dataset.kr = r.kr;
+      card.innerHTML =
+        '<span class="card-clause">Clause\u00a0' + r.clause + '</span>' +
+        '<p class="card-req">' + r.req + '</p>' +
+        '<span class="card-role">' + r.role + '</span>';
+      grid.appendChild(card);
+      if (allCards) allCards.push({ card: card, section: section });
+    });
+
+    section.appendChild(grid);
+    container.appendChild(section);
+  });
+}
+
+var allCards = [];
+
+document.addEventListener('DOMContentLoaded', function() {
+  buildCards(document.getElementById('content'), allCards);
+
+  function populateSelect(id, field) {
+    var sel = document.getElementById(id);
+    var vals = Array.from(new Set(requirements.map(function(r) { return r[field]; }).filter(Boolean))).sort();
+    vals.forEach(function(v) {
+      var o = document.createElement('option');
+      o.value = v;
+      o.textContent = (field === 'kr' && krLabels[v]) ? krLabels[v] : v;
+      sel.appendChild(o);
+    });
+    if (vals.length === 0) {
+      sel.disabled = true;
+      sel.style.opacity = '0.5';
+      sel.style.cursor = 'not-allowed';
+    }
+  }
+  populateSelect('f-role', 'role');
+  populateSelect('f-topic', 'topic');
+  populateSelect('f-kr', 'kr');
+
+  function applyFilters() {
+    var fRole = document.getElementById('f-role').value;
+    var fTopic = document.getElementById('f-topic').value;
+      var fKr = document.getElementById('f-kr').value;
+    var visible = 0;
+
+    allCards.forEach(function(item) {
+      var c = item.card;
+      var show = (!fRole || c.dataset.role === fRole) &&
+                 (!fTopic || c.dataset.topic === fTopic) &&
+                   (!fKr || c.dataset.kr === fKr);
+      c.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    document.querySelectorAll('.kr-section').forEach(function(sec) {
+      var any = sec.querySelectorAll('.req-card:not(.hidden)').length > 0;
+      sec.classList.toggle('hidden', !any);
+    });
+
+    document.getElementById('result-count').textContent = visible + ' of ' + requirements.length + ' requirements';
+    document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function clearFilters() {
+    ['f-role', 'f-topic', 'f-kr'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el.disabled) el.value = '';
+    });
+    applyFilters();
+  }
+
+  ['f-role', 'f-topic', 'f-kr'].forEach(function(id) {
+  document.getElementById('btn-clear').addEventListener('click', clearFilters);
+  document.getElementById('no-results-clear').addEventListener('click', clearFilters);
+
+  applyFilters();
+});
+
+</script>
+</body>
+</html>
