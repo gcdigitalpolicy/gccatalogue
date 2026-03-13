@@ -32,11 +32,7 @@
   }
 
   /* ── Header ── */
-  header {
-    background: var(--navy);
-    color: var(--white);
-    padding: 0;
-  }
+  header { background: var(--navy); color: var(--white); padding: 0; }
 
   .gc-bar {
     background: var(--white);
@@ -46,9 +42,7 @@
     align-items: center;
     gap: 12px;
   }
-
   .gc-bar img { height: 28px; }
-
   .gc-bar .site-name {
     font-family: 'Source Code Pro', monospace;
     font-size: 0.75rem;
@@ -56,7 +50,6 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
-
   .alpha-badge {
     background: var(--red);
     color: white;
@@ -68,11 +61,7 @@
     border-radius: 2px;
     text-transform: uppercase;
   }
-
-  .header-content {
-    padding: 32px 40px 28px;
-  }
-
+  .header-content { padding: 32px 40px 28px; }
   .header-content h1 {
     font-size: 1.75rem;
     font-weight: 300;
@@ -80,18 +69,9 @@
     line-height: 1.2;
     margin-bottom: 8px;
   }
-
   .header-content h1 strong { font-weight: 600; }
-
-  .header-content p {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.7);
-    font-style: italic;
-  }
-
-  .header-content p a {
-    color: rgba(255,255,255,0.85);
-  }
+  .header-content p { font-size: 0.95rem; color: rgba(255,255,255,0.7); font-style: italic; }
+  .header-content p a { color: rgba(255,255,255,0.85); }
 
   /* ── Filter bar ── */
   .filter-bar {
@@ -107,13 +87,7 @@
     z-index: 100;
     box-shadow: 0 2px 8px rgba(26,43,74,0.07);
   }
-
-  .filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
+  .filter-group { display: flex; flex-direction: column; gap: 4px; }
   .filter-group label {
     font-family: 'Source Code Pro', monospace;
     font-size: 0.65rem;
@@ -122,7 +96,6 @@
     color: var(--muted);
     font-weight: 500;
   }
-
   .filter-group select {
     font-family: 'Source Serif 4', serif;
     font-size: 0.9rem;
@@ -139,12 +112,7 @@
     cursor: pointer;
     transition: border-color 0.15s;
   }
-
-  .filter-group select:focus {
-    outline: none;
-    border-color: var(--slate);
-  }
-
+  .filter-group select:focus { outline: none; border-color: var(--slate); }
   .clear-btn {
     font-family: 'Source Code Pro', monospace;
     font-size: 0.7rem;
@@ -158,11 +126,8 @@
     cursor: pointer;
     align-self: flex-end;
     transition: all 0.15s;
-    margin-bottom: 0;
   }
-
   .clear-btn:hover { color: var(--navy); border-color: var(--slate); }
-
   .result-count {
     font-family: 'Source Code Pro', monospace;
     font-size: 0.72rem;
@@ -173,142 +138,67 @@
   }
 
   /* ── Main ── */
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 32px 40px 60px;
-  }
+  main { max-width: 1100px; margin: 0 auto; padding: 40px 40px 60px; }
 
-  /* ── Requirement cards ── */
-  .req-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .req-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin-bottom: 8px;
-    overflow: hidden;
-    transition: box-shadow 0.15s;
-  }
-
-  .req-card:hover {
-    box-shadow: 0 2px 12px rgba(26,43,74,0.1);
-  }
-
-  .req-card-inner {
-    padding: 18px 22px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 14px;
-    align-items: start;
-  }
-
-  .req-number {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--muted);
-    white-space: nowrap;
-    padding-top: 2px;
-    min-width: 52px;
-  }
-
-  .req-body { flex: 1; }
-
-  .req-text {
-    font-size: 0.95rem;
-    line-height: 1.55;
+  /* ── Role sections ── */
+  .role-section { margin-bottom: 48px; }
+  .role-heading {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--navy);
-    margin-bottom: 10px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 4px;
   }
 
-  .req-tags {
+  /* ── Bulleted list ── */
+  .req-list { list-style: none; margin: 0; padding: 0; }
+  .req-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+    align-items: baseline;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
   }
+  .req-item:last-child { border-bottom: none; }
+  .req-bullet {
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--navy);
+    position: relative;
+    top: 3px;
+  }
+  .req-body { flex: 1; display: flex; flex-direction: column; gap: 7px; }
+  .req-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .req-text { font-size: 0.95rem; line-height: 1.6; color: var(--navy); }
 
+  /* ── Tags ── */
   .tag {
     font-family: 'Source Code Pro', monospace;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 3px 8px;
+    padding: 2px 7px;
     border-radius: 2px;
-  }
-
-  .tag-instrument-policy {
-    background: var(--policy-bg);
-    color: var(--policy-tag);
-    border: 1px solid #C0CDE0;
-  }
-
-  .tag-instrument-directive {
-    background: var(--directive-bg);
-    color: var(--directive-tag);
-    border: 1px solid #E0D0B0;
-  }
-
-  .tag-instrument-directive-adm {
-    background: #F0EEF8;
-    color: #3A1A6B;
-    border: 1px solid #C8C0E0;
-  }
-
-  .tag-instrument-directive-og {
-    background: #EEF6EE;
-    color: #1A4A1A;
-    border: 1px solid #B0D0B0;
-  }
-
-  .tag-instrument-directive-dt {
-    background: #FFF0F0;
-    color: #6B0000;
-    border: 1px solid #E0B0B0;
-  }
-
-  .tag-role {
-    background: #F0F0F0;
-    color: #444;
-    border: 1px solid #DDD;
-  }
-
-  .tag-topic {
-    background: #EEF6EE;
-    color: #2A5C2A;
-    border: 1px solid #C0D8C0;
-  }
-
-  .req-source {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.65rem;
-    color: var(--muted);
-    text-align: right;
     white-space: nowrap;
-    padding-top: 2px;
   }
+  .tag-id { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+  .tag-instrument-policy    { background: var(--policy-bg);  color: var(--policy-tag);  border: 1px solid #C0CDE0; }
+  .tag-instrument-directive { background: var(--directive-bg); color: var(--directive-tag); border: 1px solid #E0D0B0; }
+  .tag-instrument-directive-adm { background: #F0EEF8; color: #3A1A6B; border: 1px solid #C8C0E0; }
+  .tag-instrument-directive-og  { background: #EEF6EE; color: #1A4A1A; border: 1px solid #B0D0B0; }
+  .tag-instrument-directive-dt  { background: #FFF0F0; color: #6B0000; border: 1px solid #E0B0B0; }
+  .tag-topic { background: #EEF6EE; color: #2A5C2A; border: 1px solid #C0D8C0; }
+  .tag-source { background: transparent; color: var(--muted); font-style: italic; border: none; padding-left: 0; letter-spacing: 0; text-transform: none; font-family: 'Source Serif 4', serif; font-size: 0.75rem; }
 
   /* ── Empty state ── */
-  .empty-state {
-    text-align: center;
-    padding: 80px 40px;
-    color: var(--muted);
-    display: none;
-  }
-
+  .empty-state { text-align: center; padding: 80px 40px; color: var(--muted); display: none; }
   .empty-state.visible { display: block; }
-
-  .empty-state p {
-    font-size: 1.1rem;
-    font-style: italic;
-    margin-bottom: 16px;
-  }
-
+  .empty-state p { font-size: 1.1rem; font-style: italic; margin-bottom: 16px; }
   .empty-state button {
     font-family: 'Source Serif 4', serif;
     font-size: 0.9rem;
@@ -333,8 +223,6 @@
 
   @media (max-width: 700px) {
     .gc-bar, .header-content, .filter-bar, main { padding-left: 20px; padding-right: 20px; }
-    .req-card-inner { grid-template-columns: 1fr; }
-    .req-source { text-align: left; }
   }
 </style>
 </head>
@@ -381,7 +269,7 @@
 </div>
 
 <main>
-  <div class="req-list" id="req-list"></div>
+  <div id="content"></div>
   <div class="empty-state" id="empty-state">
     <p>No requirements match your filters.</p>
     <button onclick="clearFilters()">Clear all filters</button>
@@ -395,498 +283,219 @@
 
 <script>
 const requirements = [
-
-  // ════════════════════════════════════════════════════════════════════════════
-  // POLICY ON SERVICE AND DIGITAL (4.1 Deputy Heads)
-  // ════════════════════════════════════════════════════════════════════════════
-
-  { id:"4.1.1", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Establishing governance to ensure the integrated management of service, information, data, IT and cyber security within their department." },
-  { id:"4.1.2", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Designating a departmental CIO responsible for leading the departmental IT, information and data management functions." },
-  { id:"4.1.3", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Designating an official responsible for leading the departmental service management function." },
-  { id:"4.1.4", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Designating an official responsible for leading the departmental cyber security management function." },
-  { id:"4.1.5", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Providing the departmental CIO and the official responsible for service with direct access to the deputy head." },
-  { id:"4.1.6", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Ensuring departmental participation in enterprise governance to support the development and implementation of enterprise-wide policy instruments and architecture." },
-  { id:"4.1.7", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Planning and reporting",
-    text:"Approving an annual forward-looking three-year departmental plan for the integrated management of service, information, data, IT and cyber security, aligned with the CIO of Canada's enterprise-wide plan, including a progress report on the previous year." },
-  { id:"4.1.8", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Innovation and experimentation",
-    text:"Providing support for innovation and experimentation in service, information, data, IT and cyber security." },
-  { id:"4.1.9", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Informing the Treasury Board of Canada Secretariat of activities related to this policy that involve the development of national or international IT, information or data standards." },
-  { id:"4.1.10", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Client-centric service",
-    text:"Ensuring the development and delivery of client-centric service by design, including access, inclusion, accessibility, security, privacy, simplicity and choice of official language." },
-  { id:"4.1.11", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Client-centric service",
-    text:"Maximizing the online end-to-end availability of services and their ease of use to complement all service delivery channels." },
-  { id:"4.1.12", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Client-centric service",
-    text:"Approving the department's service inventory and annual updates." },
-  { id:"4.1.13", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Service standards",
-    text:"Ensuring that services have comprehensive and transparent client-centric standards, related targets, and performance information for all service delivery channels in use, and that this information is available on the department's web presence." },
-  { id:"4.1.14", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Client-centric service",
-    text:"Ensuring that services are reviewed to identify opportunities for improvement." },
-  { id:"4.1.15", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Information and data management",
-    text:"Ensuring that information and data are managed as a strategic asset to support government operations, service delivery, analysis and decision-making." },
-  { id:"4.1.16", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Information and data management",
-    text:"Ensuring that methodologies, mechanisms and tools are implemented to support information and data life-cycle management." },
-  { id:"4.1.17", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Information and data management",
-    text:"Ensuring that departmental responsibilities and accountability structures are clearly defined for the management of information and data." },
-  { id:"4.1.18", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Information and data management",
-    text:"Ensuring that data are managed to reduce redundancy and enable interoperability." },
-  { id:"4.1.19", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Privacy",
-    text:"Ensuring that, when managing personal information or data including in the context of data interoperability, the privacy of individuals is protected according to the Privacy Act and any other relevant legislation, policy or agreement." },
-  { id:"4.1.20", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Privacy",
-    text:"Ensuring that privacy is addressed in the context of any plan or strategy to manage departmental information or data." },
-  { id:"4.1.21", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Security",
-    text:"Ensuring that sensitive information under the department's control is protected according to the Policy on Government Security and any relevant legislation, policy or agreement." },
-  { id:"4.1.22", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Open government and data",
-    text:"Maximizing the release of departmental information and data as an open resource, discoverable through the Government of Canada open government portal, while respecting information security, privacy and legal considerations." },
-  { id:"4.1.23", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Open government and data",
-    text:"Prioritizing departmental information and data to be added to the Government of Canada's open government portal, informed by public demand." },
-  { id:"4.1.24", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Recordkeeping",
-    text:"Ensuring that decisions and decision-making processes are documented to account for and support the continuity of departmental operations, permit reconstruction of how policies have evolved, support litigation readiness, and allow for independent audit and review." },
-  { id:"4.1.25", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Leveraging technology",
-    text:"Ensuring that departmental operations are digitally enabled." },
-  { id:"4.1.26", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Leveraging technology",
-    text:"Ensuring that, for newly procured or developed ICT solutions and equipment, applicable requirements or standards regarding accessibility, official languages, privacy, the environment, and security are addressed by design." },
-  { id:"4.1.27", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Leveraging technology",
-    text:"Using enterprise or shared IT solutions, assets, and services to avoid duplication, when available and appropriate." },
-  { id:"4.1.28", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Automated decision-making",
-    text:"Ensuring the responsible and ethical use of automated decision systems, ensuring decisions are efficient, accountable and unbiased, and ensuring transparency and disclosure regarding use of the systems and ongoing assessment and management of risks." },
-  { id:"4.1.29", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Network and device use",
-    text:"Providing authorized users of the departmental electronic network and devices with open access to the Internet and Government of Canada Web 2.0 tools that enhance productivity and collaboration, limiting access only where necessary to manage security risks." },
-  { id:"4.1.30", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Network and device use",
-    text:"Informing authorized users of departmental electronic networks and devices of expectations for acceptable and unacceptable use, monitoring practices applied by the department and by SSC, and consequences for unacceptable use." },
-  { id:"4.1.31", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Cyber security",
-    text:"Clearly identifying and establishing departmental roles and responsibilities for reporting cyber security events and incidents, including events that result in a privacy breach, in accordance with direction from the CIO of Canada." },
-  { id:"4.1.32", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Cyber security",
-    text:"Managing departmental approaches for identity assurance and accepting trusted digital identities to support interoperability by using approved trust frameworks." },
-  { id:"4.1.33", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Workforce capacity",
-    text:"Ensuring departmental workforce awareness, capacity and capability to meet departmental and enterprise service, information, data, IT, and cyber security requirements." },
-  { id:"4.1.34", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Workforce capacity",
-    text:"Supporting the CIO of Canada's enterprise-wide talent management and community development initiatives." },
-  { id:"4.1.35", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Workforce capacity",
-    text:"Consulting with the CIO of Canada before appointing, deploying or otherwise replacing the departmental CIO." },
-  { id:"4.1.36", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Workforce capacity",
-    text:"Ensuring that, for the purposes of the Treasury Board EX Qualifications Standard, the departmental CIO possesses an acceptable combination of education, training and/or experience." },
-  { id:"4.1.37", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Monitoring compliance with this policy and its supporting instruments within their department." },
-  { id:"4.1.38", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Advising the Secretary of the Treasury Board on a timely basis when there are significant issues with complying with this policy and its supporting instruments." },
-  { id:"4.1.39", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance",
-    text:"Ensuring that appropriate and timely remedial action is taken when significant issues with compliance arise within the department." },
-
-  // ── Policy 4.2: Secretary of the Treasury Board ───────────────────────────
-
-  { id:"4.2.1", instrument:"Policy", source:"Policy on Service and Digital", role:"Secretary of the Treasury Board", topic:"Governance",
-    text:"Establishing and chairing a senior-level body responsible for providing advice and recommendations on strategic direction for the management of enterprise services, information, data, IT and cyber security, and prioritization of GC demand for IT shared services and assets." },
-
-  // ── Policy 4.3: Secretary of TBS — Monitoring ─────────────────────────────
-
-  { id:"4.3.1", instrument:"Policy", source:"Policy on Service and Digital", role:"Secretary of the Treasury Board", topic:"Governance",
-    text:"Conducting risk-based monitoring, providing guidance, and recommending corrective actions regarding compliance with this policy, departmental performance on service and IT management, and the service and IT management function across government." },
-  { id:"4.3.2", instrument:"Policy", source:"Policy on Service and Digital", role:"Secretary of the Treasury Board", topic:"Governance",
-    text:"Advising deputy heads on a timely basis when significant incidents of non-compliance with this policy and its supporting instruments are identified." },
-
-  // ── Policy 4.4: CIO of Canada ─────────────────────────────────────────────
-
-  { id:"4.4.1", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance",
-    text:"Providing advice to the Secretary and President of the Treasury Board about governing and managing enterprise-wide information, data, IT, cyber security, and service design and delivery; prioritizing GC demand for IT shared services; and using emerging technologies." },
-  { id:"4.4.2", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance",
-    text:"Providing direction on the enterprise-wide transition to digital government, including regularly reviewing and updating the Government of Canada Digital Standards; managing information, data, IT, and cyber security; and advising on enterprise-wide service design and delivery." },
-  { id:"4.4.3", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance",
-    text:"Prescribing expectations with regard to enterprise architecture." },
-  { id:"4.4.4", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance",
-    text:"Establishing and chairing an enterprise architecture review board mandated to define current and target architecture standards for the GC and review departmental proposals for alignment." },
-  { id:"4.4.5", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology",
-    text:"Establishing priorities for IT investments (including cyber security investments) that are enterprise-wide in nature or that require the support of SSC." },
-  { id:"4.4.6", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Innovation and experimentation",
-    text:"Facilitating innovation and experimentation in service design and delivery, information, data, IT and cyber security." },
-  { id:"4.4.7", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Planning and reporting",
-    text:"Approving an annual, forward-looking three-year enterprise-wide plan that establishes the strategic direction for the integrated management of service, information, data, IT, and cyber security, including a progress report on the previous year." },
-  { id:"4.4.8", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Information and data management",
-    text:"Prescribing enterprise-wide information and data standards for quality, accessibility, and data interoperability, including common architecture taxonomies and classifications, quality requirements and life-cycle management direction." },
-  { id:"4.4.9", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology",
-    text:"Prescribing the use of specific IT business processes, technologies, applications and IT resource management approaches, including direction for their life-cycle management." },
-  { id:"4.4.10", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology",
-    text:"Providing enterprise-wide advice for IT solution procurement that maximizes flexibility for the Government of Canada." },
-  { id:"4.4.11", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology",
-    text:"Providing direction and defining enterprise-wide requirements for information and communication technologies (ICT) accessibility." },
-  { id:"4.4.12", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology",
-    text:"Supporting SSC procedures for assessing and accessing alternative provision of SSC services to support the authority of the Minister responsible for SSC." },
-  { id:"4.4.13", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance",
-    text:"Providing advice to the President of the Treasury Board to support TBS's review of the SSC Investment Plan to ensure alignment with strategic direction and enterprise-wide priorities and to assess progress." },
-  { id:"4.4.14", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Innovation and experimentation",
-    text:"Establishing guidance to support innovative practices and technologies, including open-source and open-standard applications, and agile application development." },
-  { id:"4.4.15", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance",
-    text:"Working with departments to review and endorse digital initiatives, projects and investments, and review results." },
-  { id:"4.4.16", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Cyber security",
-    text:"Defining cyber security requirements to ensure that GC and departmental information and data, applications, systems, and networks are secure, reliable and trusted." },
-  { id:"4.4.17", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Cyber security",
-    text:"Executing decisions on the management of cyber security risks on behalf of the GC and directing a deputy head to implement a specific response to cyber security events, including assessing whether there has been a privacy breach and ensuring that systems that put the GC at risk are disconnected or removed." },
-  { id:"4.4.18", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Cyber security",
-    text:"Providing direction and defining enterprise-wide requirements for the management of identities, credentials, and access for the Government of Canada and departments." },
-  { id:"4.4.19", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Workforce capacity",
-    text:"Providing enterprise-wide leadership on the development and sustainability of the information and IT functional community by using talent management and community development strategies." },
-  { id:"4.4.20", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Workforce capacity",
-    text:"Providing enterprise-wide leadership on knowledge standards for the information and IT community, including determining the acceptable combination of education, training and/or experience required for the EX Qualification Standard." },
-
-  // ── Policy 4.5: Deputy Head of SSC ───────────────────────────────────────
-
-  { id:"4.5.1", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head of SSC", topic:"Network and device use",
-    text:"Managing tools to support the monitoring of departmental electronic networks and devices." },
-  { id:"4.5.2", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head of SSC", topic:"Network and device use",
-    text:"Providing reports as required about the use of Government of Canada electronic networks and devices to assist deputy heads in the identification and investigation of issues and in the implementation of corrective action in the event of unacceptable use." },
-
-  // ════════════════════════════════════════════════════════════════════════════
-  // DIRECTIVE ON SERVICE AND DIGITAL
-  // ════════════════════════════════════════════════════════════════════════════
-
-  // ── Directive 4.1: CIO of Canada ─────────────────────────────────────────
-
-  { id:"D-4.1.1", instrument:"Directive", source:"Directive on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology",
-    text:"Defining requirements and criteria of the Standard on Information Technology User and Workpoint Profiles (Appendix D) and the Standard on Information Technology Provisions (Appendix E)." },
-
-  // ── Directive 4.2: Deputy Head of SSC ────────────────────────────────────
-
-  { id:"D-4.2.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Deputy Head of SSC", topic:"Leveraging technology",
-    text:"Providing services within SSC's mandate respecting the provisions, limits and thresholds specified in the Standards on IT User and Workpoint Profiles and IT Provisions." },
-  { id:"D-4.2.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Deputy Head of SSC", topic:"Governance",
-    text:"Providing departmental CIOs and the CIO of Canada with details on service offering, availability and their department's actual consumption, subject to data availability." },
-  { id:"D-4.2.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Deputy Head of SSC", topic:"Open government and data",
-    text:"Releasing for publication on the Open Government portal enterprise-wide annual statistics on availability and actual consumption, subject to data availability." },
-  { id:"D-4.2.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Deputy Head of SSC", topic:"Leveraging technology",
-    text:"Providing to departments, subject to data availability, inventories of applications and associated software and versions." },
-
-  // ── Directive 4.3: Departmental CIO ──────────────────────────────────────
-
-  { id:"D-4.3.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance",
-    text:"Chairing a departmental architecture review board mandated to review and approve the architecture of all departmental digital initiatives and ensure alignment with enterprise architectures and standards." },
-  { id:"D-4.3.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance",
-    text:"Submitting proposals to the GC Enterprise Architecture Review Board where the department will invest at or above defined thresholds (from $2.5M–$25M depending on capacity class), where emerging technologies are involved, where exceptions are required, where Protected B or below data will use non-public cloud, or where custom support for at-risk technology is being extended." },
-  { id:"D-4.3.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance",
-    text:"Ensuring that proposals submitted to the GC Enterprise Architecture Review Board have first been assessed by the departmental architecture review board where one has been established." },
-  { id:"D-4.3.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance",
-    text:"Ensuring that proposals to the GC Enterprise Architecture Review Board are submitted after review of concept cases for digital projects and before the development of a Treasury Board submission or departmental business case." },
-  { id:"D-4.3.5", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance",
-    text:"Ensuring that departmental initiatives submitted to the GC Enterprise Architecture Review Board align with the GC Enterprise Architecture Framework, the GC Standards on APIs, and the Government of Canada Digital Standards." },
-  { id:"D-4.3.6", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting",
-    text:"Approving the IT and information or data component of all departmental strategies, plans, initiatives, projects, procurements and spending authority requests." },
-  { id:"D-4.3.7", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting",
-    text:"Producing the departmental IT expenditure report and ongoing Application Portfolio Management update reports." },
-  { id:"D-4.3.8", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting",
-    text:"Ensuring that departmental IT investments, service development and improvement initiatives are informed by and integrated into departmental business planning." },
-  { id:"D-4.3.9", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Participating, as an internal enterprise service organization or as a service client, in the conception, planning, evolution and oversight of enterprise-wide IT services and solutions." },
-  { id:"D-4.3.10", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance",
-    text:"Advising the CIO of Canada about decisions, plans, strategies, directions, progress, risks and challenges related to initiatives that affect the provision or use of IT services in or across departments." },
-  { id:"D-4.3.11", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Providing IT services that are responsive to departmental priorities and to the needs of program delivery and business." },
-  { id:"D-4.3.12", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Ensuring that decisions and actions regarding IT are guided by the CIO of Canada's enterprise-wide plan and prioritization of GC demand for IT services and assets." },
-  { id:"D-4.3.13", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Adopting, as applicable, enterprise solutions within the respective department." },
-  { id:"D-4.3.14", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Developing and maintaining departmental IT management practices and processes, informed by ITIL and COBIT, while prioritizing IT asset management, the IT service catalogue, and IT service costing and pricing." },
-  { id:"D-4.3.15", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting",
-    text:"Developing, implementing and sustaining departmental strategies for producing or using appropriate enterprise IT services and solutions, based on the integrated service, information, IT and cyber security departmental plan." },
-  { id:"D-4.3.16", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Collaborating on digitally enabled business transformation with the business owner and other stakeholders." },
-  { id:"D-4.3.17", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Innovation and experimentation",
-    text:"Identifying emerging technologies that could potentially contribute to the strategic and business goals of the department and the GC." },
-  { id:"D-4.3.18", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Ensuring that IT services are designed and managed to support interoperability." },
-  { id:"D-4.3.19", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Collecting, maintaining, approving and updating annually the department's inventory of employees and their assigned IT user and workpoint profiles as set out in Appendix D and Appendix E." },
-  { id:"D-4.3.20", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Complying with provisions, limits, configurations and thresholds as set out in the Standard on IT Provisions (Appendix E), Standard on Enterprise IT Service Usage Restrictions (Appendix F), and Standard on Enterprise IT Service Common Configurations (Appendix G)." },
-  { id:"D-4.3.21", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting",
-    text:"Identifying planned usage of IT services in the integrated departmental plan using the Metrics for Government of Canada Information Technology Consumption." },
-  { id:"D-4.3.22", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Open government and data",
-    text:"Ensuring that open source software is encouraged and where used, contributing to the communities whose work is being leveraged." },
-  { id:"D-4.3.23", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Supporting application hosting by ensuring that options are identified and evaluated when initiating new IT investments, adopted when most effective, and compliant with federal privacy and security legislation." },
-  { id:"D-4.3.24", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Privacy",
-    text:"Ensuring that computing facilities located within Canada or on GC premises abroad are identified and evaluated as a principal delivery option for all sensitive electronic information categorized as Protected B, Protected C, or classified." },
-  { id:"D-4.3.25", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Network and device use",
-    text:"Drafting notices to authorized network and device users about expectations for acceptable and unacceptable use of GC networks and devices, and about electronic network monitoring practices applied by the department or by SSC." },
-  { id:"D-4.3.26", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Ensuring compliance with procedures established for accessing alternatives to SSC service delivery mechanisms, as necessary." },
-  { id:"D-4.3.27", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Ensuring that technologies are current and that unsupported technologies are not used, according to the Standard on At-Risk Information Technology (Appendix H)." },
-  { id:"D-4.3.28", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Providing functional leadership in the department on the development and sustainability of the IT and information communities through talent management and community development strategies." },
-
-  // ── Directive 4.4: Departmental CIO (with other officials) — Information & Data ──
-
-  { id:"D-4.4.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management",
-    text:"Establishing departmental information architecture in alignment with prescribed enterprise-wide standards." },
-  { id:"D-4.4.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management",
-    text:"Ensuring that digital systems are the preferred means of creating, capturing and managing information." },
-  { id:"D-4.4.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management",
-    text:"Ensuring that information and data are managed to enable data interoperability, reuse and sharing to the greatest extent possible within and across departments, while respecting security and privacy requirements." },
-  { id:"D-4.4.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Accessibility",
-    text:"Ensuring that departmental information is created in an accessible format, where appropriate, in accordance with TBS guidance." },
-  { id:"D-4.4.5", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management",
-    text:"Establishing and maintaining taxonomies or classification structures to manage, store, search and retrieve information and data in all formats according to prescribed enterprise-wide standards." },
-  { id:"D-4.4.6", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management",
-    text:"Documenting life-cycle management practices within the department that align with the nature or purpose of the information or data and that address accountability, stewardship, performance measurement, reporting and legal requirements." },
-  { id:"D-4.4.7", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management",
-    text:"Establishing, implementing and maintaining retention periods for all information and data, as appropriate, according to format." },
-  { id:"D-4.4.8", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management",
-    text:"Developing a documented disposition process and performing regular disposition activities for all information and data, as required." },
-  { id:"D-4.4.9", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Privacy",
-    text:"Protecting information and data by documenting and mitigating risks, taking into consideration business value, legal and regulatory risks, access to information, security, and the protection of personal information." },
-  { id:"D-4.4.10", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Recordkeeping",
-    text:"Identifying information of business value, based on an analysis of the functions and activities carried out by the department to enable or support its legislated mandate." },
-  { id:"D-4.4.11", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Open government and data",
-    text:"Maximizing the removal of access restrictions on departmental information identified as having archival value before transfer to Library and Archives Canada as part of planned disposition activities." },
-  { id:"D-4.4.12", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Recordkeeping",
-    text:"Ensuring that an approved GC enterprise information management solution is used to document business activities, decisions and decision-making processes." },
-  { id:"D-4.4.13", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Recordkeeping",
-    text:"Identifying, establishing, implementing and maintaining designated corporate repositories in which information of business value is managed throughout its life cycle while respecting privacy and security requirements." },
-  { id:"D-4.4.14", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management",
-    text:"Ensuring that the quality of information is managed and preserved to satisfy the requirements and expectations of users to meet operational needs, responsibilities and long-term retention requirements." },
-
-  // ── Directive 4.5: Designated Official for Cyber Security ────────────────
-
-  { id:"D-4.5.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Cyber Security", topic:"Cyber security",
-    text:"Ensuring that cyber security requirements and appropriate risk-based measures are applied continuously in an identify, protect, detect, respond and recover approach to protect information systems and services, in accordance with the Directive on Security Management Appendix B." },
-  { id:"D-4.5.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Cyber Security", topic:"Cyber security",
-    text:"Ensuring that departmental plans, processes and procedures are in place for responding to cyber security events and reporting of incidents to the appropriate authorities and affected stakeholders, in accordance with the GC Cyber Security Event Management Plan." },
-  { id:"D-4.5.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Cyber Security", topic:"Cyber security",
-    text:"Undertaking immediate action within the department to assess impacts, including whether there has been a privacy breach, and implementing mitigation measures in response to cyber security events." },
-  { id:"D-4.5.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Cyber Security", topic:"Privacy",
-    text:"Liaising with the access to information and privacy office and the Office of the Privacy Commissioner when there has been a material privacy breach." },
-
-  // ── Directive 4.6: Designated Official for Service ───────────────────────
-
-  { id:"D-4.6.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Client-centric service",
-    text:"Ensuring that client feedback, including in-service client feedback, client satisfaction surveys and user experience testing, is collected and used to inform design, delivery and continuous improvement of services." },
-  { id:"D-4.6.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Client-centric service",
-    text:"Ensuring that newly designed or redesigned online services provide real-time application status to clients." },
-  { id:"D-4.6.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Service standards",
-    text:"Developing and annually updating a departmental service inventory." },
-  { id:"D-4.6.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Open government and data",
-    text:"Working with TBS to make the departmental service inventory available through the GC open government portal." },
-  { id:"D-4.6.5", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Service standards",
-    text:"Ensuring the development, management and regular review of service standards, related targets and performance information for all services and all service delivery channels in use." },
-  { id:"D-4.6.6", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Service standards",
-    text:"Ensuring that the reporting of real-time performance information for service standards is available on the department's web presence." },
-  { id:"D-4.6.7", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Client-centric service",
-    text:"Ensuring that each service is regularly reviewed with clients, partners and stakeholders, at least once every five years, to identify opportunities for improvement including redesign for client-centricity, digital enablement, online availability, efficiency, partnership arrangements, and alignment with GC Digital Standards." },
-
-  // ── Directive 4.7: Employees ──────────────────────────────────────────────
-
-  { id:"D-4.7.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Employee", topic:"Recordkeeping",
-    text:"Documenting their activities and decisions of business value." },
-
-  // ── Directive 4.8: Managers ───────────────────────────────────────────────
-
-  { id:"D-4.8.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Manager", topic:"Recordkeeping",
-    text:"Informing employees of their duty to document their activities and decisions of business value." },
-
-  // ── Directive Appendix A: Acceptable network and device use ───────────────
-
-  { id:"D-AppA-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix A", role:"Employee", topic:"Network and device use",
-    text:"Employees may use GC networks and devices for incidental personal use when it does not interfere with duties, consumes minimal resources, and complies with applicable policies. Acceptable uses include accessing news, professional development resources, and online services supporting employee wellness, consistent with GC values." },
-
-  // ── Directive Appendix B: Unacceptable use ────────────────────────────────
-
-  { id:"D-AppB-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix B", role:"Employee", topic:"Network and device use",
-    text:"Employees must not use GC networks or devices to access, transmit or store material that is illegal, offensive, harassing, discriminatory or contrary to the GC Values and Ethics Code, nor for commercial activities, political activities, or activities that could embarrass or compromise the Government of Canada." },
-
-  // ── Directive Appendix C: Privacy and monitoring notices ──────────────────
-
-  { id:"D-AppC-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix C", role:"Departmental CIO", topic:"Privacy",
-    text:"Departments must provide notice to employees of the monitoring of their use of government networks and devices, following mandatory procedures for privacy and monitoring notices." },
-  { id:"D-AppC-2", instrument:"Directive", source:"Directive on Service and Digital — Appendix C", role:"Departmental CIO", topic:"Network and device use",
-    text:"Monitoring of network and device use must be carried out only to the extent necessary for legitimate operational, security or legal purposes, and in compliance with applicable privacy legislation." },
-
-  // ── Directive Appendix H: At-risk IT ──────────────────────────────────────
-
-  { id:"D-AppH-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix H", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Departments must maintain an inventory of all IT assets (hardware and software), assess each asset's support and maintenance status annually, and ensure unsupported or end-of-life technology is identified, risk-assessed and mitigated through upgrade, replacement or decommissioning." },
-  { id:"D-AppH-2", instrument:"Directive", source:"Directive on Service and Digital — Appendix H", role:"Departmental CIO", topic:"Planning and reporting",
-    text:"Departments must report annually to the CIO of Canada on the status of at-risk technologies, planned mitigation measures, and associated timelines." },
-
-  // ── Directive Appendix I: Enterprise data reference standards ─────────────
-
-  { id:"D-AppI-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix I", role:"Departmental CIO", topic:"Information and data management",
-    text:"Departments must adopt GC Enterprise Data Reference Standards for common data elements (such as geographic, language, and currency codes) to support interoperability and data sharing across government." },
-
-  // ── Directive Appendix J: Systems managing information and data ───────────
-
-  { id:"D-AppJ-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix J", role:"Departmental CIO", topic:"Information and data management",
-    text:"Systems that manage information and data must support the full life cycle of information (creation through disposition) and must comply with recordkeeping, security and privacy requirements in applicable TBS policies and standards." },
-
-  // ── Directive Appendix K: Enterprise IT service usage restrictions ─────────
-
-  { id:"D-AppK-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix K", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Departments must adhere to provisions and maximum usage thresholds for enterprise IT services as specified in the Standard on Enterprise IT Service Usage Restrictions. Usage beyond established thresholds requires prior authorization and must be reported to the enterprise service provider." },
-
-  // ── Directive Appendix L: Enterprise IT service common configurations ──────
-
-  { id:"D-AppL-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix L", role:"Departmental CIO", topic:"Leveraging technology",
-    text:"Departments must apply mandatory common configuration settings for enterprise IT service components. Any deviation requires documented justification, approval by the departmental CIO, and reporting to the CIO of Canada where required." },
-
-  // ════════════════════════════════════════════════════════════════════════════
-  // DIRECTIVE ON AUTOMATED DECISION-MAKING
-  // ════════════════════════════════════════════════════════════════════════════
-
-  { id:"ADM-6.1.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Completing, approving and publishing the final results of an algorithmic impact assessment in an accessible format on the Open Government Portal prior to any automated decision system going into production." },
-  { id:"ADM-6.1.2", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Applying the relevant requirements prescribed in Appendix C as determined by the algorithmic impact assessment impact level (I–IV)." },
-  { id:"ADM-6.1.3", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Reviewing, approving, and updating the published algorithmic impact assessment on a scheduled basis, including when the functionality or scope of the automated decision system changes." },
-  { id:"ADM-6.2.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency",
-    text:"Providing notice through all service delivery channels that a decision will be made or assisted by an automated decision system, as prescribed by the applicable impact level." },
-  { id:"ADM-6.2.2", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency",
-    text:"Providing notices prominently and in plain language, pursuant to the Canada.ca Content Style Guide." },
-  { id:"ADM-6.2.3", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency",
-    text:"Providing a meaningful explanation to clients of how and why an automated decision was made, at the level of detail prescribed for the applicable impact level." },
-  { id:"ADM-6.2.4", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Determining the appropriate licence for software components used in automated decision systems, including consideration of open source software." },
-  { id:"ADM-6.2.5", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Obtaining and safeguarding all released versions of software components used for automated decision systems." },
-  { id:"ADM-6.2.6", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"If using a proprietary licence, ensuring the department retains the right to access, test, monitor and authorize external parties to audit the automated decision system and all released proprietary software versions." },
-  { id:"ADM-6.2.7", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Recordkeeping",
-    text:"Documenting decisions and assessments made or assisted by automated decision systems in accordance with the Directive on Service and Digital, to support testing, monitoring, data governance and reporting requirements." },
-  { id:"ADM-6.3.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Before an automated decision system is in production, testing the data, information, and underlying model for accuracy, unintended biases, and all factors that may unintentionally or unfairly impact outcomes or violate human rights and freedoms." },
-  { id:"ADM-6.3.2", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Monitoring outcomes of the automated decision system on a scheduled basis to safeguard against unintentional or unfair outcomes and verify compliance with human rights obligations, departmental legislation, and this directive." },
-  { id:"ADM-6.3.3", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Ensuring that testing and monitoring assesses human rights and is consistent with applicable legislation including the Canadian Charter of Rights and Freedoms, Canadian Human Rights Act, and the UN Declaration on the Rights of Indigenous Peoples Act." },
-  { id:"ADM-6.3.4", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Documenting client feedback, unexpected impacts, human overrides of decisions and other system failures, and using findings to identify issues and take corrective actions." },
-  { id:"ADM-6.3.5", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Information and data management",
-    text:"Validating that the data used to train the automated decision system and the data input into the system are relevant, accurate, up-to-date, and in accordance with the Policy on Service and Digital and the Privacy Act." },
-  { id:"ADM-6.3.6", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Privacy",
-    text:"Establishing measures to ensure that data used and produced by the automated decision system are traceable, protected, accessed appropriately, and lawfully collected, used, retained, disclosed and disposed of in accordance with the Directive on Service and Digital, Directive on Privacy Practices, and Directive on Security Management." },
-  { id:"ADM-6.3.7", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Consulting appropriate qualified experts to review the automated decision system, algorithmic impact assessment and supporting documentation, and publishing the complete review or a plain language summary prior to production, as prescribed by the applicable impact level." },
-  { id:"ADM-6.3.8", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Completing a Gender-based Analysis Plus during the development or modification of the automated decision system, as prescribed by the applicable impact level." },
-  { id:"ADM-6.3.9", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Workforce capacity",
-    text:"Providing role-based training to each employee involved in any aspect of the development, use or management of automated decision systems, as prescribed by the applicable impact level." },
-  { id:"ADM-6.3.10", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Security",
-    text:"Conducting risk assessments during development and maintenance of the automated decision system and implementing appropriate information management and IT security protections, in accordance with the Policy on Government Security and Policy on Service and Digital." },
-  { id:"ADM-6.3.11", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Security",
-    text:"Implementing measures to secure data and model integrity to prevent tampering and unauthorized modifications, ensuring alignment with GC guidance, standards, and industry best practices." },
-  { id:"ADM-6.3.12", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Consulting with the department's legal services from the concept stage of an automation project to ensure that use of the automated decision system is compliant with applicable legal requirements." },
-  { id:"ADM-6.3.13", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making",
-    text:"Ensuring that the automated decision system allows for human involvement, as prescribed by the applicable impact level." },
-  { id:"ADM-6.3.14", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Governance",
-    text:"Obtaining the appropriate level of approval prior to production of an automated decision system: ADM for Levels I–II; Deputy Head for Level III; Treasury Board for Level IV." },
-  { id:"ADM-6.4.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Client-centric service",
-    text:"Informing clients of recourse options to challenge an administrative decision made or assisted by an automated decision system, and ensuring those options are timely, effective, and easy to access." },
-  { id:"ADM-6.5.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency",
-    text:"Publishing information on the Open Government Portal on the effectiveness and efficiency of the automated decision system in meeting program objectives." },
-  { id:"ADM-6.5.2", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency",
-    text:"Publishing information on the Open Government Portal on how the use of the automated decision system is fair and transparent and does not violate human rights and freedoms." },
-
-  // ════════════════════════════════════════════════════════════════════════════
-  // DIRECTIVE ON OPEN GOVERNMENT
-  // ════════════════════════════════════════════════════════════════════════════
-
-  { id:"OG-6.1", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data",
-    text:"Maximizing the release of Government of Canada open data (structured data) and open information (unstructured documents and multimedia assets) under an open and unrestrictive licence designated by TBS, as outlined in Appendix B." },
-  { id:"OG-6.2", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data",
-    text:"Ensuring that open data and open information is released in accessible and reusable formats via Government of Canada websites and services designated by TBS." },
-  { id:"OG-6.3", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Information and data management",
-    text:"Establishing and maintaining comprehensive inventories of data and information resources of business value held by the department to determine their eligibility and priority, and to plan for their effective release." },
-  { id:"OG-6.4", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data",
-    text:"Developing, posting to the designated website, implementing, and annually updating a departmental Open Government Implementation Plan (OGIP) as outlined in Appendix C." },
-  { id:"OG-6.5", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data",
-    text:"Maximizing the removal of access restrictions on departmental information resources of enduring value prior to transfer to Library and Archives Canada as part of planned disposition activities." },
-  { id:"OG-6.6", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data",
-    text:"Ensuring that open government requirements are integrated in any new plans for procuring, developing, or modernizing departmental information applications, systems, or solutions in support of the delivery of programs and services." },
-  { id:"OG-AppB-1", instrument:"Directive-OG", source:"Directive on Open Government — Appendix B", role:"IM Senior Official", topic:"Open government and data",
-    text:"All data resources of business value held by GC departments are to be open by default and released as open data unless subject to valid exceptions such as ownership, security, privacy, and confidentiality." },
-  { id:"OG-AppB-2", instrument:"Directive-OG", source:"Directive on Open Government — Appendix B", role:"IM Senior Official", topic:"Open government and data",
-    text:"At a minimum, all mandatory reporting documents (e.g. reports to Parliament, proactive disclosure reports) and all documents posted online or planned for publication are to be released by default, subject to valid exceptions." },
-  { id:"OG-AppC-1", instrument:"Directive-OG", source:"Directive on Open Government — Appendix C", role:"IM Senior Official", topic:"Open government and data",
-    text:"Departments will develop and update annually an Open Government Implementation Plan (OGIP) covering governance structures for open government, activities to maximize release of open data and information, inventory maintenance activities, and access restriction removal activities prior to Library and Archives Canada transfers." },
-
-  // ════════════════════════════════════════════════════════════════════════════
-  // DIRECTIVE ON DIGITAL TALENT
-  // ════════════════════════════════════════════════════════════════════════════
-
-  { id:"DT-4.1.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Participating in annual government-wide planning and reporting exercises for digital talent, including completing the annual digital talent survey in accordance with the Mandatory Procedures on Digital Talent." },
-  { id:"DT-4.1.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"For new digital initiatives that expect or require a substantial digital talent component for delivery, engaging with TBS-OCIO throughout the planning process in accordance with the Mandatory Procedures on Digital Talent." },
-  { id:"DT-4.2.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Being familiar with TBS-OCIO-led centralized services and tools for digital talent recruitment, mobility, training and development, executive appointment and placement, and standardized job descriptions related to digital talent." },
-  { id:"DT-4.2.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Collaborating with TBS-OCIO in the coordination of government-wide recruitment and upskilling efforts in accordance with the Mandatory Procedures on Digital Talent." },
-  { id:"DT-4.2.3", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Implementing measures identified by TBS-OCIO and collaborating with TBS-OCIO in the advancement and progress tracking of diversity, inclusion and equity in the recruitment and development of the GC's digital community." },
-  { id:"DT-4.3.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Ensuring that TBS-OCIO is informed at the time when any contract for digital talent or IT-related services is submitted to departmental procurement authorities for processing, in accordance with the Mandatory Procedures on Digital Talent." },
-  { id:"DT-4.3.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Engaging TBS-OCIO prior to concluding that a shortage of available or qualified digital talent is the primary rationale for contracting-out." },
-  { id:"DT-4.4.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Enabling employee development, training, and upskilling, including encouraging employee participation in TBS-OCIO coordinated training and upskilling opportunities." },
-  { id:"DT-4.4.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Encouraging employees to participate in government-wide digital talent management activities identified by TBS-OCIO, in line with departmental talent management processes." },
-  { id:"DT-4.4.3", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Ensuring that diversity, equity and inclusion are prioritized in the development of departmental digital talent strategies, and that progress is made against any existing equity gaps." },
-  { id:"DT-4.5.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity",
-    text:"Engaging TBS-OCIO on the appointment, deployment, or replacement of the departmental CIO or equivalent senior digital role, including in cases where the role is filled by non-EX employees." },
-  { id:"DT-4.5.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity",
-    text:"Engaging TBS-OCIO when making changes to digital executive organizational structures, particularly at the C-suite level, to ensure clarity and consistency on the roles and relationships of C-suite digital leaders." },
-  { id:"DT-4.6.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Manager", topic:"Workforce capacity",
-    text:"Supporting government-wide talent management of digital leaders by taking TBS-OCIO guidance into account and collaborating with TBS-OCIO on executive performance management for those under the purview of the CIO of Canada's mandate." },
-  { id:"DT-4.7.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Taking TBS-OCIO guidance on generic roles and levels into account when determining requirements related to the recruitment and appointment of digital talent and the establishment of organizational structures." },
-  { id:"DT-4.7.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Enabling managers to leverage flexibilities as allowed by legislation, policies and standards, to plan for, develop, and source the talent necessary to deliver digital services in a timely way." },
-  { id:"DT-4.7.3", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Ensuring managers, human resources officials and contracting authorities are familiar with the requirements in the Directive on Digital Talent and in the Mandatory Procedures on Digital Talent." },
-  { id:"DT-4.7.4", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Governance",
-    text:"Balancing risk as a cohesive whole, carefully weighing the risk of applying certain talent sourcing flexibilities against the impact of failing to deliver digital services." },
-  { id:"DT-A.2.3", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"Completing and submitting the Annual Digital Talent Survey in accordance with instructions provided by TBS-OCIO, using TBS-OCIO-provided tools for data collection." },
-  { id:"DT-A.2.4", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Departmental CIO", topic:"Workforce capacity",
-    text:"For digital initiatives requiring 10 or more net new digital talent FTEs to a single department, notifying TBS-OCIO at least 6 months prior to selecting a sourcing mechanism." },
-  { id:"DT-A.2.5.1", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"Prior to launching a department-specific digital talent recruitment process or initiating a contract for digital services, checking TBS-OCIO-led centralized talent pools via the GC Digital Talent Platform to verify availability of existing talent." },
-  { id:"DT-A.2.5.2", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"Where intending to launch a digital talent recruitment process for multiple hires or a pool, consulting TBS-OCIO on the option to run a jointly coordinated recruitment process leveraging TBS-OCIO's talent tools and processes." },
-  { id:"DT-A.2.5.3", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"Using generic work streams and standardized job descriptions related to digital talent, where possible and appropriate." },
-  { id:"DT-A.2.5.4", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"When initiating a procurement for digital services, completing and submitting the Digital Services Contracting Questionnaire to TBS-OCIO at the time the procurement is submitted to the contracting authority (for contracts, amendments and task authorizations exceeding $40,000)." },
-  { id:"DT-A.2.5.5", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"Prior to concluding that a shortage of qualified digital talent is the primary rationale for contracting out, confirming with TBS-OCIO via the GC Digital Talent Platform that no available pre-qualified talent in a TBS-OCIO-coordinated pool could meet the need." },
-  { id:"DT-A.2.5.6", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"Implementing measures identified by TBS-OCIO to advance diversity, inclusion and equity in the recruitment and development of the GC digital community, as appropriate." },
-  { id:"DT-A.2.6.1", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity",
-    text:"Engaging TBS-OCIO when a departmental CIO position will become vacant, prior to selecting an HR vehicle for replacement or candidate selection." },
-  { id:"DT-A.2.6.2", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity",
-    text:"Engaging TBS-OCIO prior to making significant changes to the digital executive organization structure." },
-  { id:"DT-A.2.6.3", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity",
-    text:"Prior to finalizing the executive performance management agreement for the departmental CIO or equivalent senior digital role, engaging with TBS-OCIO to identify and verify government-wide commitments." },
-  { id:"DT-A.2.6.4", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity",
-    text:"Encouraging employee participation in TBS-OCIO-led executive talent management initiatives." },
-  { id:"DT-A.2.7.1", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"In the planning of new digital initiatives, ensuring necessary financial flexibilities exist to allow expenditures in staffing where appropriate, and to avoid unnecessary dependence on contracting due to financial constraints." },
-  { id:"DT-A.2.7.2", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"In cases where new or revised funding support is being sought for a digital initiative, ensuring all scoping and approval documentation allows the necessary flexibility to source digital talent as needed, including fiscal structures to support staffing options." },
-  { id:"DT-A.2.7.3", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity",
-    text:"Where finance-related barriers prevent departments from sourcing digital talent through staffing, engaging TBS-OCIO to verify flexibilities or alternatives and to report the situation for aggregated trend analysis." },
+  { id:"4.1.1", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Establishing governance to ensure the integrated management of service, information, data, IT and cyber security within their department." },
+  { id:"4.1.2", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Designating a departmental CIO responsible for leading the departmental IT, information and data management functions." },
+  { id:"4.1.3", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Designating an official responsible for leading the departmental service management function." },
+  { id:"4.1.4", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Designating an official responsible for leading the departmental cyber security management function." },
+  { id:"4.1.5", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Providing the departmental CIO and the official responsible for service with direct access to the deputy head." },
+  { id:"4.1.6", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Ensuring departmental participation in enterprise governance to support the development and implementation of enterprise-wide policy instruments and architecture." },
+  { id:"4.1.7", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Planning and reporting", text:"Approving an annual forward-looking three-year departmental plan for the integrated management of service, information, data, IT and cyber security, aligned with the CIO of Canada's enterprise-wide plan, including a progress report on the previous year." },
+  { id:"4.1.8", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Innovation and experimentation", text:"Providing support for innovation and experimentation in service, information, data, IT and cyber security." },
+  { id:"4.1.9", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Informing the Treasury Board of Canada Secretariat of activities related to this policy that involve the development of national or international IT, information or data standards." },
+  { id:"4.1.10", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Client-centric service", text:"Ensuring the development and delivery of client-centric service by design, including access, inclusion, accessibility, security, privacy, simplicity and choice of official language." },
+  { id:"4.1.11", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Client-centric service", text:"Maximizing the online end-to-end availability of services and their ease of use to complement all service delivery channels." },
+  { id:"4.1.12", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Client-centric service", text:"Approving the department's service inventory and annual updates." },
+  { id:"4.1.13", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Service standards", text:"Ensuring that services have comprehensive and transparent client-centric standards, related targets, and performance information for all service delivery channels in use, and that this information is available on the department's web presence." },
+  { id:"4.1.14", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Client-centric service", text:"Ensuring that services are reviewed to identify opportunities for improvement." },
+  { id:"4.1.15", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Information and data management", text:"Ensuring that information and data are managed as a strategic asset to support government operations, service delivery, analysis and decision-making." },
+  { id:"4.1.16", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Information and data management", text:"Ensuring that methodologies, mechanisms and tools are implemented to support information and data life-cycle management." },
+  { id:"4.1.17", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Information and data management", text:"Ensuring that departmental responsibilities and accountability structures are clearly defined for the management of information and data." },
+  { id:"4.1.18", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Information and data management", text:"Ensuring that data are managed to reduce redundancy and enable interoperability." },
+  { id:"4.1.19", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Privacy", text:"Ensuring that, when managing personal information or data including in the context of data interoperability, the privacy of individuals is protected according to the Privacy Act and any other relevant legislation, policy or agreement." },
+  { id:"4.1.20", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Privacy", text:"Ensuring that privacy is addressed in the context of any plan or strategy to manage departmental information or data." },
+  { id:"4.1.21", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Security", text:"Ensuring that sensitive information under the department's control is protected according to the Policy on Government Security and any relevant legislation, policy or agreement." },
+  { id:"4.1.22", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Open government and data", text:"Maximizing the release of departmental information and data as an open resource, discoverable through the Government of Canada open government portal, while respecting information security, privacy and legal considerations." },
+  { id:"4.1.23", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Open government and data", text:"Prioritizing departmental information and data to be added to the Government of Canada's open government portal, informed by public demand." },
+  { id:"4.1.24", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Recordkeeping", text:"Ensuring that decisions and decision-making processes are documented to account for and support the continuity of departmental operations, permit reconstruction of how policies have evolved, support litigation readiness, and allow for independent audit and review." },
+  { id:"4.1.25", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Leveraging technology", text:"Ensuring that departmental operations are digitally enabled." },
+  { id:"4.1.26", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Leveraging technology", text:"Ensuring that, for newly procured or developed ICT solutions and equipment, applicable requirements or standards regarding accessibility, official languages, privacy, the environment, and security are addressed by design." },
+  { id:"4.1.27", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Leveraging technology", text:"Using enterprise or shared IT solutions, assets, and services to avoid duplication, when available and appropriate." },
+  { id:"4.1.28", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Automated decision-making", text:"Ensuring the responsible and ethical use of automated decision systems, ensuring decisions are efficient, accountable and unbiased, and ensuring transparency and disclosure regarding use of the systems and ongoing assessment and management of risks." },
+  { id:"4.1.29", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Network and device use", text:"Providing authorized users of the departmental electronic network and devices with open access to the Internet and Government of Canada Web 2.0 tools that enhance productivity and collaboration, limiting access only where necessary to manage security risks." },
+  { id:"4.1.30", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Network and device use", text:"Informing authorized users of departmental electronic networks and devices of expectations for acceptable and unacceptable use, monitoring practices applied by the department and by SSC, and consequences for unacceptable use." },
+  { id:"4.1.31", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Cyber security", text:"Clearly identifying and establishing departmental roles and responsibilities for reporting cyber security events and incidents, including events that result in a privacy breach, in accordance with direction from the CIO of Canada." },
+  { id:"4.1.32", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Cyber security", text:"Managing departmental approaches for identity assurance and accepting trusted digital identities to support interoperability by using approved trust frameworks." },
+  { id:"4.1.33", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Workforce capacity", text:"Ensuring departmental workforce awareness, capacity and capability to meet departmental and enterprise service, information, data, IT, and cyber security requirements." },
+  { id:"4.1.34", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Workforce capacity", text:"Supporting the CIO of Canada's enterprise-wide talent management and community development initiatives." },
+  { id:"4.1.35", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Workforce capacity", text:"Consulting with the CIO of Canada before appointing, deploying or otherwise replacing the departmental CIO." },
+  { id:"4.1.36", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Workforce capacity", text:"Ensuring that, for the purposes of the Treasury Board EX Qualifications Standard, the departmental CIO possesses an acceptable combination of education, training and/or experience." },
+  { id:"4.1.37", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Monitoring compliance with this policy and its supporting instruments within their department." },
+  { id:"4.1.38", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Advising the Secretary of the Treasury Board on a timely basis when there are significant issues with complying with this policy and its supporting instruments." },
+  { id:"4.1.39", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head", topic:"Governance", text:"Ensuring that appropriate and timely remedial action is taken when significant issues with compliance arise within the department." },
+  { id:"4.2.1", instrument:"Policy", source:"Policy on Service and Digital", role:"Secretary of the Treasury Board", topic:"Governance", text:"Establishing and chairing a senior-level body responsible for providing advice and recommendations on strategic direction for the management of enterprise services, information, data, IT and cyber security, and prioritization of GC demand for IT shared services and assets." },
+  { id:"4.3.1", instrument:"Policy", source:"Policy on Service and Digital", role:"Secretary of the Treasury Board", topic:"Governance", text:"Conducting risk-based monitoring, providing guidance, and recommending corrective actions regarding compliance with this policy, departmental performance on service and IT management, and the service and IT management function across government." },
+  { id:"4.3.2", instrument:"Policy", source:"Policy on Service and Digital", role:"Secretary of the Treasury Board", topic:"Governance", text:"Advising deputy heads on a timely basis when significant incidents of non-compliance with this policy and its supporting instruments are identified." },
+  { id:"4.4.1", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance", text:"Providing advice to the Secretary and President of the Treasury Board about governing and managing enterprise-wide information, data, IT, cyber security, and service design and delivery; prioritizing GC demand for IT shared services; and using emerging technologies." },
+  { id:"4.4.2", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance", text:"Providing direction on the enterprise-wide transition to digital government, including regularly reviewing and updating the Government of Canada Digital Standards; managing information, data, IT, and cyber security; and advising on enterprise-wide service design and delivery." },
+  { id:"4.4.3", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance", text:"Prescribing expectations with regard to enterprise architecture." },
+  { id:"4.4.4", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance", text:"Establishing and chairing an enterprise architecture review board mandated to define current and target architecture standards for the GC and review departmental proposals for alignment." },
+  { id:"4.4.5", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology", text:"Establishing priorities for IT investments (including cyber security investments) that are enterprise-wide in nature or that require the support of SSC." },
+  { id:"4.4.6", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Innovation and experimentation", text:"Facilitating innovation and experimentation in service design and delivery, information, data, IT and cyber security." },
+  { id:"4.4.7", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Planning and reporting", text:"Approving an annual, forward-looking three-year enterprise-wide plan that establishes the strategic direction for the integrated management of service, information, data, IT, and cyber security, including a progress report on the previous year." },
+  { id:"4.4.8", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Information and data management", text:"Prescribing enterprise-wide information and data standards for quality, accessibility, and data interoperability, including common architecture taxonomies and classifications, quality requirements and life-cycle management direction." },
+  { id:"4.4.9", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology", text:"Prescribing the use of specific IT business processes, technologies, applications and IT resource management approaches, including direction for their life-cycle management." },
+  { id:"4.4.10", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology", text:"Providing enterprise-wide advice for IT solution procurement that maximizes flexibility for the Government of Canada." },
+  { id:"4.4.11", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology", text:"Providing direction and defining enterprise-wide requirements for information and communication technologies (ICT) accessibility." },
+  { id:"4.4.12", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology", text:"Supporting SSC procedures for assessing and accessing alternative provision of SSC services to support the authority of the Minister responsible for SSC." },
+  { id:"4.4.13", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance", text:"Providing advice to the President of the Treasury Board to support TBS's review of the SSC Investment Plan to ensure alignment with strategic direction and enterprise-wide priorities and to assess progress." },
+  { id:"4.4.14", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Innovation and experimentation", text:"Establishing guidance to support innovative practices and technologies, including open-source and open-standard applications, and agile application development." },
+  { id:"4.4.15", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Governance", text:"Working with departments to review and endorse digital initiatives, projects and investments, and review results." },
+  { id:"4.4.16", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Cyber security", text:"Defining cyber security requirements to ensure that GC and departmental information and data, applications, systems, and networks are secure, reliable and trusted." },
+  { id:"4.4.17", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Cyber security", text:"Executing decisions on the management of cyber security risks on behalf of the GC and directing a deputy head to implement a specific response to cyber security events, including assessing whether there has been a privacy breach and ensuring that systems that put the GC at risk are disconnected or removed." },
+  { id:"4.4.18", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Cyber security", text:"Providing direction and defining enterprise-wide requirements for the management of identities, credentials, and access for the Government of Canada and departments." },
+  { id:"4.4.19", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Workforce capacity", text:"Providing enterprise-wide leadership on the development and sustainability of the information and IT functional community by using talent management and community development strategies." },
+  { id:"4.4.20", instrument:"Policy", source:"Policy on Service and Digital", role:"CIO of Canada", topic:"Workforce capacity", text:"Providing enterprise-wide leadership on knowledge standards for the information and IT community, including determining the acceptable combination of education, training and/or experience required for the EX Qualification Standard." },
+  { id:"4.5.1", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head of SSC", topic:"Network and device use", text:"Managing tools to support the monitoring of departmental electronic networks and devices." },
+  { id:"4.5.2", instrument:"Policy", source:"Policy on Service and Digital", role:"Deputy Head of SSC", topic:"Network and device use", text:"Providing reports as required about the use of Government of Canada electronic networks and devices to assist deputy heads in the identification and investigation of issues and in the implementation of corrective action in the event of unacceptable use." },
+  { id:"D-4.1.1", instrument:"Directive", source:"Directive on Service and Digital", role:"CIO of Canada", topic:"Leveraging technology", text:"Defining requirements and criteria of the Standard on Information Technology User and Workpoint Profiles (Appendix D) and the Standard on Information Technology Provisions (Appendix E)." },
+  { id:"D-4.2.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Deputy Head of SSC", topic:"Leveraging technology", text:"Providing services within SSC's mandate respecting the provisions, limits and thresholds specified in the Standards on IT User and Workpoint Profiles and IT Provisions." },
+  { id:"D-4.2.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Deputy Head of SSC", topic:"Governance", text:"Providing departmental CIOs and the CIO of Canada with details on service offering, availability and their department's actual consumption, subject to data availability." },
+  { id:"D-4.2.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Deputy Head of SSC", topic:"Open government and data", text:"Releasing for publication on the Open Government portal enterprise-wide annual statistics on availability and actual consumption, subject to data availability." },
+  { id:"D-4.2.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Deputy Head of SSC", topic:"Leveraging technology", text:"Providing to departments, subject to data availability, inventories of applications and associated software and versions." },
+  { id:"D-4.3.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance", text:"Chairing a departmental architecture review board mandated to review and approve the architecture of all departmental digital initiatives and ensure alignment with enterprise architectures and standards." },
+  { id:"D-4.3.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance", text:"Submitting proposals to the GC Enterprise Architecture Review Board where the department will invest at or above defined thresholds (from $2.5M–$25M depending on capacity class), where emerging technologies are involved, where exceptions are required, where Protected B or below data will use non-public cloud, or where custom support for at-risk technology is being extended." },
+  { id:"D-4.3.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance", text:"Ensuring that proposals submitted to the GC Enterprise Architecture Review Board have first been assessed by the departmental architecture review board where one has been established." },
+  { id:"D-4.3.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance", text:"Ensuring that proposals to the GC Enterprise Architecture Review Board are submitted after review of concept cases for digital projects and before the development of a Treasury Board submission or departmental business case." },
+  { id:"D-4.3.5", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance", text:"Ensuring that departmental initiatives submitted to the GC Enterprise Architecture Review Board align with the GC Enterprise Architecture Framework, the GC Standards on APIs, and the Government of Canada Digital Standards." },
+  { id:"D-4.3.6", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting", text:"Approving the IT and information or data component of all departmental strategies, plans, initiatives, projects, procurements and spending authority requests." },
+  { id:"D-4.3.7", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting", text:"Producing the departmental IT expenditure report and ongoing Application Portfolio Management update reports." },
+  { id:"D-4.3.8", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting", text:"Ensuring that departmental IT investments, service development and improvement initiatives are informed by and integrated into departmental business planning." },
+  { id:"D-4.3.9", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Participating, as an internal enterprise service organization or as a service client, in the conception, planning, evolution and oversight of enterprise-wide IT services and solutions." },
+  { id:"D-4.3.10", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Governance", text:"Advising the CIO of Canada about decisions, plans, strategies, directions, progress, risks and challenges related to initiatives that affect the provision or use of IT services in or across departments." },
+  { id:"D-4.3.11", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Providing IT services that are responsive to departmental priorities and to the needs of program delivery and business." },
+  { id:"D-4.3.12", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Ensuring that decisions and actions regarding IT are guided by the CIO of Canada's enterprise-wide plan and prioritization of GC demand for IT services and assets." },
+  { id:"D-4.3.13", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Adopting, as applicable, enterprise solutions within the respective department." },
+  { id:"D-4.3.14", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Developing and maintaining departmental IT management practices and processes, informed by ITIL and COBIT, while prioritizing IT asset management, the IT service catalogue, and IT service costing and pricing." },
+  { id:"D-4.3.15", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting", text:"Developing, implementing and sustaining departmental strategies for producing or using appropriate enterprise IT services and solutions, based on the integrated service, information, IT and cyber security departmental plan." },
+  { id:"D-4.3.16", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Collaborating on digitally enabled business transformation with the business owner and other stakeholders." },
+  { id:"D-4.3.17", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Innovation and experimentation", text:"Identifying emerging technologies that could potentially contribute to the strategic and business goals of the department and the GC." },
+  { id:"D-4.3.18", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Ensuring that IT services are designed and managed to support interoperability." },
+  { id:"D-4.3.19", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Collecting, maintaining, approving and updating annually the department's inventory of employees and their assigned IT user and workpoint profiles as set out in Appendix D and Appendix E." },
+  { id:"D-4.3.20", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Complying with provisions, limits, configurations and thresholds as set out in the Standard on IT Provisions (Appendix E), Standard on Enterprise IT Service Usage Restrictions (Appendix F), and Standard on Enterprise IT Service Common Configurations (Appendix G)." },
+  { id:"D-4.3.21", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Planning and reporting", text:"Identifying planned usage of IT services in the integrated departmental plan using the Metrics for Government of Canada Information Technology Consumption." },
+  { id:"D-4.3.22", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Open government and data", text:"Ensuring that open source software is encouraged and where used, contributing to the communities whose work is being leveraged." },
+  { id:"D-4.3.23", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Supporting application hosting by ensuring that options are identified and evaluated when initiating new IT investments, adopted when most effective, and compliant with federal privacy and security legislation." },
+  { id:"D-4.3.24", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Privacy", text:"Ensuring that computing facilities located within Canada or on GC premises abroad are identified and evaluated as a principal delivery option for all sensitive electronic information categorized as Protected B, Protected C, or classified." },
+  { id:"D-4.3.25", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Network and device use", text:"Drafting notices to authorized network and device users about expectations for acceptable and unacceptable use of GC networks and devices, and about electronic network monitoring practices applied by the department or by SSC." },
+  { id:"D-4.3.26", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Ensuring compliance with procedures established for accessing alternatives to SSC service delivery mechanisms, as necessary." },
+  { id:"D-4.3.27", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Leveraging technology", text:"Ensuring that technologies are current and that unsupported technologies are not used, according to the Standard on At-Risk Information Technology (Appendix H)." },
+  { id:"D-4.3.28", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Workforce capacity", text:"Providing functional leadership in the department on the development and sustainability of the IT and information communities through talent management and community development strategies." },
+  { id:"D-4.4.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management", text:"Establishing departmental information architecture in alignment with prescribed enterprise-wide standards." },
+  { id:"D-4.4.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management", text:"Ensuring that digital systems are the preferred means of creating, capturing and managing information." },
+  { id:"D-4.4.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management", text:"Ensuring that information and data are managed to enable data interoperability, reuse and sharing to the greatest extent possible within and across departments, while respecting security and privacy requirements." },
+  { id:"D-4.4.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Accessibility", text:"Ensuring that departmental information is created in an accessible format, where appropriate, in accordance with TBS guidance." },
+  { id:"D-4.4.5", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management", text:"Establishing and maintaining taxonomies or classification structures to manage, store, search and retrieve information and data in all formats according to prescribed enterprise-wide standards." },
+  { id:"D-4.4.6", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management", text:"Documenting life-cycle management practices within the department that align with the nature or purpose of the information or data and that address accountability, stewardship, performance measurement, reporting and legal requirements." },
+  { id:"D-4.4.7", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management", text:"Establishing, implementing and maintaining retention periods for all information and data, as appropriate, according to format." },
+  { id:"D-4.4.8", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management", text:"Developing a documented disposition process and performing regular disposition activities for all information and data, as required." },
+  { id:"D-4.4.9", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Privacy", text:"Protecting information and data by documenting and mitigating risks, taking into consideration business value, legal and regulatory risks, access to information, security, and the protection of personal information." },
+  { id:"D-4.4.10", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Recordkeeping", text:"Identifying information of business value, based on an analysis of the functions and activities carried out by the department to enable or support its legislated mandate." },
+  { id:"D-4.4.11", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Open government and data", text:"Maximizing the removal of access restrictions on departmental information identified as having archival value before transfer to Library and Archives Canada as part of planned disposition activities." },
+  { id:"D-4.4.12", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Recordkeeping", text:"Ensuring that an approved GC enterprise information management solution is used to document business activities, decisions and decision-making processes." },
+  { id:"D-4.4.13", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Recordkeeping", text:"Identifying, establishing, implementing and maintaining designated corporate repositories in which information of business value is managed throughout its life cycle while respecting privacy and security requirements." },
+  { id:"D-4.4.14", instrument:"Directive", source:"Directive on Service and Digital", role:"Departmental CIO", topic:"Information and data management", text:"Ensuring that the quality of information is managed and preserved to satisfy the requirements and expectations of users to meet operational needs, responsibilities and long-term retention requirements." },
+  { id:"D-4.5.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Cyber Security", topic:"Cyber security", text:"Ensuring that cyber security requirements and appropriate risk-based measures are applied continuously in an identify, protect, detect, respond and recover approach to protect information systems and services, in accordance with the Directive on Security Management Appendix B." },
+  { id:"D-4.5.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Cyber Security", topic:"Cyber security", text:"Ensuring that departmental plans, processes and procedures are in place for responding to cyber security events and reporting of incidents to the appropriate authorities and affected stakeholders, in accordance with the GC Cyber Security Event Management Plan." },
+  { id:"D-4.5.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Cyber Security", topic:"Cyber security", text:"Undertaking immediate action within the department to assess impacts, including whether there has been a privacy breach, and implementing mitigation measures in response to cyber security events." },
+  { id:"D-4.5.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Cyber Security", topic:"Privacy", text:"Liaising with the access to information and privacy office and the Office of the Privacy Commissioner when there has been a material privacy breach." },
+  { id:"D-4.6.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Client-centric service", text:"Ensuring that client feedback, including in-service client feedback, client satisfaction surveys and user experience testing, is collected and used to inform design, delivery and continuous improvement of services." },
+  { id:"D-4.6.2", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Client-centric service", text:"Ensuring that newly designed or redesigned online services provide real-time application status to clients." },
+  { id:"D-4.6.3", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Service standards", text:"Developing and annually updating a departmental service inventory." },
+  { id:"D-4.6.4", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Open government and data", text:"Working with TBS to make the departmental service inventory available through the GC open government portal." },
+  { id:"D-4.6.5", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Service standards", text:"Ensuring the development, management and regular review of service standards, related targets and performance information for all services and all service delivery channels in use." },
+  { id:"D-4.6.6", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Service standards", text:"Ensuring that the reporting of real-time performance information for service standards is available on the department's web presence." },
+  { id:"D-4.6.7", instrument:"Directive", source:"Directive on Service and Digital", role:"Designated Official for Service", topic:"Client-centric service", text:"Ensuring that each service is regularly reviewed with clients, partners and stakeholders, at least once every five years, to identify opportunities for improvement including redesign for client-centricity, digital enablement, online availability, efficiency, partnership arrangements, and alignment with GC Digital Standards." },
+  { id:"D-4.7.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Employee", topic:"Recordkeeping", text:"Documenting their activities and decisions of business value." },
+  { id:"D-4.8.1", instrument:"Directive", source:"Directive on Service and Digital", role:"Manager", topic:"Recordkeeping", text:"Informing employees of their duty to document their activities and decisions of business value." },
+  { id:"D-AppA-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix A", role:"Employee", topic:"Network and device use", text:"Employees may use GC networks and devices for incidental personal use when it does not interfere with duties, consumes minimal resources, and complies with applicable policies. Acceptable uses include accessing news, professional development resources, and online services supporting employee wellness, consistent with GC values." },
+  { id:"D-AppB-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix B", role:"Employee", topic:"Network and device use", text:"Employees must not use GC networks or devices to access, transmit or store material that is illegal, offensive, harassing, discriminatory or contrary to the GC Values and Ethics Code, nor for commercial activities, political activities, or activities that could embarrass or compromise the Government of Canada." },
+  { id:"D-AppC-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix C", role:"Departmental CIO", topic:"Privacy", text:"Departments must provide notice to employees of the monitoring of their use of government networks and devices, following mandatory procedures for privacy and monitoring notices." },
+  { id:"D-AppC-2", instrument:"Directive", source:"Directive on Service and Digital — Appendix C", role:"Departmental CIO", topic:"Network and device use", text:"Monitoring of network and device use must be carried out only to the extent necessary for legitimate operational, security or legal purposes, and in compliance with applicable privacy legislation." },
+  { id:"D-AppH-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix H", role:"Departmental CIO", topic:"Leveraging technology", text:"Departments must maintain an inventory of all IT assets (hardware and software), assess each asset's support and maintenance status annually, and ensure unsupported or end-of-life technology is identified, risk-assessed and mitigated through upgrade, replacement or decommissioning." },
+  { id:"D-AppH-2", instrument:"Directive", source:"Directive on Service and Digital — Appendix H", role:"Departmental CIO", topic:"Planning and reporting", text:"Departments must report annually to the CIO of Canada on the status of at-risk technologies, planned mitigation measures, and associated timelines." },
+  { id:"D-AppI-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix I", role:"Departmental CIO", topic:"Information and data management", text:"Departments must adopt GC Enterprise Data Reference Standards for common data elements (such as geographic, language, and currency codes) to support interoperability and data sharing across government." },
+  { id:"D-AppJ-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix J", role:"Departmental CIO", topic:"Information and data management", text:"Systems that manage information and data must support the full life cycle of information (creation through disposition) and must comply with recordkeeping, security and privacy requirements in applicable TBS policies and standards." },
+  { id:"D-AppK-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix K", role:"Departmental CIO", topic:"Leveraging technology", text:"Departments must adhere to provisions and maximum usage thresholds for enterprise IT services as specified in the Standard on Enterprise IT Service Usage Restrictions. Usage beyond established thresholds requires prior authorization and must be reported to the enterprise service provider." },
+  { id:"D-AppL-1", instrument:"Directive", source:"Directive on Service and Digital — Appendix L", role:"Departmental CIO", topic:"Leveraging technology", text:"Departments must apply mandatory common configuration settings for enterprise IT service components. Any deviation requires documented justification, approval by the departmental CIO, and reporting to the CIO of Canada where required." },
+  { id:"ADM-6.1.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Completing, approving and publishing the final results of an algorithmic impact assessment in an accessible format on the Open Government Portal prior to any automated decision system going into production." },
+  { id:"ADM-6.1.2", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Applying the relevant requirements prescribed in Appendix C as determined by the algorithmic impact assessment impact level (I–IV)." },
+  { id:"ADM-6.1.3", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Reviewing, approving, and updating the published algorithmic impact assessment on a scheduled basis, including when the functionality or scope of the automated decision system changes." },
+  { id:"ADM-6.2.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency", text:"Providing notice through all service delivery channels that a decision will be made or assisted by an automated decision system, as prescribed by the applicable impact level." },
+  { id:"ADM-6.2.2", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency", text:"Providing notices prominently and in plain language, pursuant to the Canada.ca Content Style Guide." },
+  { id:"ADM-6.2.3", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency", text:"Providing a meaningful explanation to clients of how and why an automated decision was made, at the level of detail prescribed for the applicable impact level." },
+  { id:"ADM-6.2.4", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Determining the appropriate licence for software components used in automated decision systems, including consideration of open source software." },
+  { id:"ADM-6.2.5", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Obtaining and safeguarding all released versions of software components used for automated decision systems." },
+  { id:"ADM-6.2.6", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"If using a proprietary licence, ensuring the department retains the right to access, test, monitor and authorize external parties to audit the automated decision system and all released proprietary software versions." },
+  { id:"ADM-6.2.7", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Recordkeeping", text:"Documenting decisions and assessments made or assisted by automated decision systems in accordance with the Directive on Service and Digital, to support testing, monitoring, data governance and reporting requirements." },
+  { id:"ADM-6.3.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Before an automated decision system is in production, testing the data, information, and underlying model for accuracy, unintended biases, and all factors that may unintentionally or unfairly impact outcomes or violate human rights and freedoms." },
+  { id:"ADM-6.3.2", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Monitoring outcomes of the automated decision system on a scheduled basis to safeguard against unintentional or unfair outcomes and verify compliance with human rights obligations, departmental legislation, and this directive." },
+  { id:"ADM-6.3.3", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Ensuring that testing and monitoring assesses human rights and is consistent with applicable legislation including the Canadian Charter of Rights and Freedoms, Canadian Human Rights Act, and the UN Declaration on the Rights of Indigenous Peoples Act." },
+  { id:"ADM-6.3.4", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Documenting client feedback, unexpected impacts, human overrides of decisions and other system failures, and using findings to identify issues and take corrective actions." },
+  { id:"ADM-6.3.5", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Information and data management", text:"Validating that the data used to train the automated decision system and the data input into the system are relevant, accurate, up-to-date, and in accordance with the Policy on Service and Digital and the Privacy Act." },
+  { id:"ADM-6.3.6", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Privacy", text:"Establishing measures to ensure that data used and produced by the automated decision system are traceable, protected, accessed appropriately, and lawfully collected, used, retained, disclosed and disposed of in accordance with the Directive on Service and Digital, Directive on Privacy Practices, and Directive on Security Management." },
+  { id:"ADM-6.3.7", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Consulting appropriate qualified experts to review the automated decision system, algorithmic impact assessment and supporting documentation, and publishing the complete review or a plain language summary prior to production, as prescribed by the applicable impact level." },
+  { id:"ADM-6.3.8", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Completing a Gender-based Analysis Plus during the development or modification of the automated decision system, as prescribed by the applicable impact level." },
+  { id:"ADM-6.3.9", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Workforce capacity", text:"Providing role-based training to each employee involved in any aspect of the development, use or management of automated decision systems, as prescribed by the applicable impact level." },
+  { id:"ADM-6.3.10", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Security", text:"Conducting risk assessments during development and maintenance of the automated decision system and implementing appropriate information management and IT security protections, in accordance with the Policy on Government Security and Policy on Service and Digital." },
+  { id:"ADM-6.3.11", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Security", text:"Implementing measures to secure data and model integrity to prevent tampering and unauthorized modifications, ensuring alignment with GC guidance, standards, and industry best practices." },
+  { id:"ADM-6.3.12", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Consulting with the department's legal services from the concept stage of an automation project to ensure that use of the automated decision system is compliant with applicable legal requirements." },
+  { id:"ADM-6.3.13", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Automated decision-making", text:"Ensuring that the automated decision system allows for human involvement, as prescribed by the applicable impact level." },
+  { id:"ADM-6.3.14", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Governance", text:"Obtaining the appropriate level of approval prior to production of an automated decision system: ADM for Levels I–II; Deputy Head for Level III; Treasury Board for Level IV." },
+  { id:"ADM-6.4.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Client-centric service", text:"Informing clients of recourse options to challenge an administrative decision made or assisted by an automated decision system, and ensuring those options are timely, effective, and easy to access." },
+  { id:"ADM-6.5.1", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency", text:"Publishing information on the Open Government Portal on the effectiveness and efficiency of the automated decision system in meeting program objectives." },
+  { id:"ADM-6.5.2", instrument:"Directive-ADM", source:"Directive on Automated Decision-Making", role:"Assistant Deputy Minister / Senior Official", topic:"Transparency", text:"Publishing information on the Open Government Portal on how the use of the automated decision system is fair and transparent and does not violate human rights and freedoms." },
+  { id:"OG-6.1", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data", text:"Maximizing the release of Government of Canada open data (structured data) and open information (unstructured documents and multimedia assets) under an open and unrestrictive licence designated by TBS, as outlined in Appendix B." },
+  { id:"OG-6.2", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data", text:"Ensuring that open data and open information is released in accessible and reusable formats via Government of Canada websites and services designated by TBS." },
+  { id:"OG-6.3", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Information and data management", text:"Establishing and maintaining comprehensive inventories of data and information resources of business value held by the department to determine their eligibility and priority, and to plan for their effective release." },
+  { id:"OG-6.4", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data", text:"Developing, posting to the designated website, implementing, and annually updating a departmental Open Government Implementation Plan (OGIP) as outlined in Appendix C." },
+  { id:"OG-6.5", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data", text:"Maximizing the removal of access restrictions on departmental information resources of enduring value prior to transfer to Library and Archives Canada as part of planned disposition activities." },
+  { id:"OG-6.6", instrument:"Directive-OG", source:"Directive on Open Government", role:"IM Senior Official", topic:"Open government and data", text:"Ensuring that open government requirements are integrated in any new plans for procuring, developing, or modernizing departmental information applications, systems, or solutions in support of the delivery of programs and services." },
+  { id:"OG-AppB-1", instrument:"Directive-OG", source:"Directive on Open Government — Appendix B", role:"IM Senior Official", topic:"Open government and data", text:"All data resources of business value held by GC departments are to be open by default and released as open data unless subject to valid exceptions such as ownership, security, privacy, and confidentiality." },
+  { id:"OG-AppB-2", instrument:"Directive-OG", source:"Directive on Open Government — Appendix B", role:"IM Senior Official", topic:"Open government and data", text:"At a minimum, all mandatory reporting documents (e.g. reports to Parliament, proactive disclosure reports) and all documents posted online or planned for publication are to be released by default, subject to valid exceptions." },
+  { id:"OG-AppC-1", instrument:"Directive-OG", source:"Directive on Open Government — Appendix C", role:"IM Senior Official", topic:"Open government and data", text:"Departments will develop and update annually an Open Government Implementation Plan (OGIP) covering governance structures for open government, activities to maximize release of open data and information, inventory maintenance activities, and access restriction removal activities prior to Library and Archives Canada transfers." },
+  { id:"DT-4.1.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Participating in annual government-wide planning and reporting exercises for digital talent, including completing the annual digital talent survey in accordance with the Mandatory Procedures on Digital Talent." },
+  { id:"DT-4.1.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"For new digital initiatives that expect or require a substantial digital talent component for delivery, engaging with TBS-OCIO throughout the planning process in accordance with the Mandatory Procedures on Digital Talent." },
+  { id:"DT-4.2.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Being familiar with TBS-OCIO-led centralized services and tools for digital talent recruitment, mobility, training and development, executive appointment and placement, and standardized job descriptions related to digital talent." },
+  { id:"DT-4.2.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Collaborating with TBS-OCIO in the coordination of government-wide recruitment and upskilling efforts in accordance with the Mandatory Procedures on Digital Talent." },
+  { id:"DT-4.2.3", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Implementing measures identified by TBS-OCIO and collaborating with TBS-OCIO in the advancement and progress tracking of diversity, inclusion and equity in the recruitment and development of the GC's digital community." },
+  { id:"DT-4.3.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Ensuring that TBS-OCIO is informed at the time when any contract for digital talent or IT-related services is submitted to departmental procurement authorities for processing, in accordance with the Mandatory Procedures on Digital Talent." },
+  { id:"DT-4.3.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Engaging TBS-OCIO prior to concluding that a shortage of available or qualified digital talent is the primary rationale for contracting-out." },
+  { id:"DT-4.4.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Enabling employee development, training, and upskilling, including encouraging employee participation in TBS-OCIO coordinated training and upskilling opportunities." },
+  { id:"DT-4.4.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Encouraging employees to participate in government-wide digital talent management activities identified by TBS-OCIO, in line with departmental talent management processes." },
+  { id:"DT-4.4.3", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Ensuring that diversity, equity and inclusion are prioritized in the development of departmental digital talent strategies, and that progress is made against any existing equity gaps." },
+  { id:"DT-4.5.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity", text:"Engaging TBS-OCIO on the appointment, deployment, or replacement of the departmental CIO or equivalent senior digital role, including in cases where the role is filled by non-EX employees." },
+  { id:"DT-4.5.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity", text:"Engaging TBS-OCIO when making changes to digital executive organizational structures, particularly at the C-suite level, to ensure clarity and consistency on the roles and relationships of C-suite digital leaders." },
+  { id:"DT-4.6.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Manager", topic:"Workforce capacity", text:"Supporting government-wide talent management of digital leaders by taking TBS-OCIO guidance into account and collaborating with TBS-OCIO on executive performance management for those under the purview of the CIO of Canada's mandate." },
+  { id:"DT-4.7.1", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Taking TBS-OCIO guidance on generic roles and levels into account when determining requirements related to the recruitment and appointment of digital talent and the establishment of organizational structures." },
+  { id:"DT-4.7.2", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Enabling managers to leverage flexibilities as allowed by legislation, policies and standards, to plan for, develop, and source the talent necessary to deliver digital services in a timely way." },
+  { id:"DT-4.7.3", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Workforce capacity", text:"Ensuring managers, human resources officials and contracting authorities are familiar with the requirements in the Directive on Digital Talent and in the Mandatory Procedures on Digital Talent." },
+  { id:"DT-4.7.4", instrument:"Directive-DT", source:"Directive on Digital Talent", role:"Departmental CIO", topic:"Governance", text:"Balancing risk as a cohesive whole, carefully weighing the risk of applying certain talent sourcing flexibilities against the impact of failing to deliver digital services." },
+  { id:"DT-A.2.3", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Departmental CIO", topic:"Workforce capacity", text:"Completing and submitting the Annual Digital Talent Survey in accordance with instructions provided by TBS-OCIO, using TBS-OCIO-provided tools for data collection." },
+  { id:"DT-A.2.4", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Departmental CIO", topic:"Workforce capacity", text:"For digital initiatives requiring 10 or more net new digital talent FTEs to a single department, notifying TBS-OCIO at least 6 months prior to selecting a sourcing mechanism." },
+  { id:"DT-A.2.5.1", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"Prior to launching a department-specific digital talent recruitment process or initiating a contract for digital services, checking TBS-OCIO-led centralized talent pools via the GC Digital Talent Platform to verify availability of existing talent." },
+  { id:"DT-A.2.5.2", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"Where intending to launch a digital talent recruitment process for multiple hires or a pool, consulting TBS-OCIO on the option to run a jointly coordinated recruitment process leveraging TBS-OCIO's talent tools and processes." },
+  { id:"DT-A.2.5.3", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"Using generic work streams and standardized job descriptions related to digital talent, where possible and appropriate." },
+  { id:"DT-A.2.5.4", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"When initiating a procurement for digital services, completing and submitting the Digital Services Contracting Questionnaire to TBS-OCIO at the time the procurement is submitted to the contracting authority (for contracts, amendments and task authorizations exceeding $40,000)." },
+  { id:"DT-A.2.5.5", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"Prior to concluding that a shortage of qualified digital talent is the primary rationale for contracting out, confirming with TBS-OCIO via the GC Digital Talent Platform that no available pre-qualified talent in a TBS-OCIO-coordinated pool could meet the need." },
+  { id:"DT-A.2.5.6", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"Implementing measures identified by TBS-OCIO to advance diversity, inclusion and equity in the recruitment and development of the GC digital community, as appropriate." },
+  { id:"DT-A.2.6.1", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity", text:"Engaging TBS-OCIO when a departmental CIO position will become vacant, prior to selecting an HR vehicle for replacement or candidate selection." },
+  { id:"DT-A.2.6.2", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity", text:"Engaging TBS-OCIO prior to making significant changes to the digital executive organization structure." },
+  { id:"DT-A.2.6.3", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity", text:"Prior to finalizing the executive performance management agreement for the departmental CIO or equivalent senior digital role, engaging with TBS-OCIO to identify and verify government-wide commitments." },
+  { id:"DT-A.2.6.4", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Delegated Authority (CIO Appointment)", topic:"Workforce capacity", text:"Encouraging employee participation in TBS-OCIO-led executive talent management initiatives." },
+  { id:"DT-A.2.7.1", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"In the planning of new digital initiatives, ensuring necessary financial flexibilities exist to allow expenditures in staffing where appropriate, and to avoid unnecessary dependence on contracting due to financial constraints." },
+  { id:"DT-A.2.7.2", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"In cases where new or revised funding support is being sought for a digital initiative, ensuring all scoping and approval documentation allows the necessary flexibility to source digital talent as needed, including fiscal structures to support staffing options." },
+  { id:"DT-A.2.7.3", instrument:"Directive-DT", source:"Directive on Digital Talent — Appendix", role:"Manager", topic:"Workforce capacity", text:"Where finance-related barriers prevent departments from sourcing digital talent through staffing, engaging TBS-OCIO to verify flexibilities or alternatives and to report the situation for aggregated trend analysis." },
 ];
 
+const instrLabels = {
+  'Policy': 'Policy on S&D',
+  'Directive': 'Directive on S&D',
+  'Directive-ADM': 'Directive on ADM',
+  'Directive-OG': 'Directive on Open Gov',
+  'Directive-DT': 'Directive on Digital Talent'
+};
 
-// Build role and topic dropdowns separately
+// Populate role and topic dropdowns
 const roleSet = new Set();
 const topicSet = new Set();
 requirements.forEach(r => { roleSet.add(r.role); topicSet.add(r.topic); });
@@ -906,22 +515,22 @@ Array.from(topicSet).sort().forEach(v => {
 });
 
 function render() {
-  const inst = document.getElementById('filter-instrument').value;
-  const role = document.getElementById('filter-role').value;
+  const inst  = document.getElementById('filter-instrument').value;
+  const role  = document.getElementById('filter-role').value;
   const topic = document.getElementById('filter-topic').value;
 
   const filtered = requirements.filter(r => {
-    if (inst && r.instrument !== inst) return false;
-    if (role && r.role !== role) return false;
-    if (topic && r.topic !== topic) return false;
+    if (inst  && r.instrument !== inst)  return false;
+    if (role  && r.role       !== role)  return false;
+    if (topic && r.topic      !== topic) return false;
     return true;
   });
 
-  const list = document.getElementById('req-list');
-  const empty = document.getElementById('empty-state');
-  const count = document.getElementById('result-count');
+  const content = document.getElementById('content');
+  const empty   = document.getElementById('empty-state');
+  const count   = document.getElementById('result-count');
 
-  list.innerHTML = '';
+  content.innerHTML = '';
   count.textContent = `${filtered.length} of ${requirements.length} requirements`;
 
   if (filtered.length === 0) {
@@ -930,23 +539,48 @@ function render() {
   }
   empty.classList.remove('visible');
 
+  // Group by role
+  const grouped = {};
   filtered.forEach(r => {
-    const card = document.createElement('div');
-    card.className = 'req-card';
-    card.innerHTML = `
-      <div class="req-card-inner">
-        <div class="req-number">${r.id}</div>
+    if (!grouped[r.role]) grouped[r.role] = [];
+    grouped[r.role].push(r);
+  });
+
+  Object.keys(grouped).sort().forEach(roleName => {
+    const section = document.createElement('div');
+    section.className = 'role-section';
+
+    const heading = document.createElement('div');
+    heading.className = 'role-heading';
+    heading.textContent = roleName;
+    section.appendChild(heading);
+
+    const ul = document.createElement('ul');
+    ul.className = 'req-list';
+
+    grouped[roleName].forEach(r => {
+      const li = document.createElement('li');
+      li.className = 'req-item';
+
+      const instrKey = r.instrument.toLowerCase().replace(/-/g, '-');
+      const instrLabel = instrLabels[r.instrument] || r.instrument;
+
+      li.innerHTML = `
+        <div class="req-bullet"></div>
         <div class="req-body">
-          <p class="req-text">${r.text}</p>
-          <div class="req-tags">
-            <span class="tag tag-instrument-${r.instrument.toLowerCase()}">${{'Policy':'Policy on S&D','Directive':'Directive on S&D','Directive-ADM':'Directive on ADM','Directive-OG':'Directive on Open Gov','Directive-DT':'Directive on Digital Talent'}[r.instrument] || r.instrument}</span>
-            <span class="tag tag-role">${r.role}</span>
+          <div class="req-meta">
+            <span class="tag tag-id">${r.id}</span>
+            <span class="tag tag-instrument-${instrKey}">${instrLabel}</span>
             <span class="tag tag-topic">${r.topic}</span>
+            <span class="tag tag-source">${r.source}</span>
           </div>
-        </div>
-        <div class="req-source">${r.source}</div>
-      </div>`;
-    list.appendChild(card);
+          <p class="req-text">${r.text}</p>
+        </div>`;
+      ul.appendChild(li);
+    });
+
+    section.appendChild(ul);
+    content.appendChild(section);
   });
 }
 
